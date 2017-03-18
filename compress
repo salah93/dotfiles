@@ -1,0 +1,17 @@
+# $1 is name of compressed file, $2 is source directory
+if [ $# -ne 2 ]; then
+    echo please provide name of compressed file and directory to compress
+    return 1
+fi
+pattern=".+.tar.gz"
+if ! [[ $2 =~ $pattern ]]; then
+    arg=${2%%.*}.tar.gz
+else
+    arg=$2
+fi
+if ! [ -d $1 ]; then
+    echo please provide directory as second argument
+    return 1
+else
+    tar czvf $arg $1
+fi

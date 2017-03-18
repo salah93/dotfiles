@@ -1,0 +1,2 @@
+# thanks to invisibleroads https://github.com/invisibleroads/scripts/blob/master/grep-
+grep -r --exclude-dir .git "$@" .

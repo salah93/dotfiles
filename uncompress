@@ -1,0 +1,8 @@
+if [ $# -ne 1 ]; then
+    echo please provide name of compressed file and directory to compress
+fi
+if ! [ -f $1 ]; then
+    echo please provide file as argument
+else
+    tar xf $1
+fi

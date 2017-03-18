@@ -1,0 +1,23 @@
+#! /usr/bin/python
+def lcm_gcd(x, y):
+    def gcd(x, y):
+        if x < y:
+            return gcd(y, x)
+        assert y >= 0 
+        if y == 0:
+            return x
+        p = x % y 
+        return gcd(y, p)
+    den = gcd(x, y)
+    mul = ((x * y) / den)
+    return den, mul 
+
+
+if __name__ == '__main__':
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument('x', type=int)
+    parser.add_argument('y', type=int)
+    args = parser.parse_args()
+    gcd, lcm = lcm_gcd(args.x, args.y)
+    print("gcd = %d\nlcm = %d" % (gcd, lcm))

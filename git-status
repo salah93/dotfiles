@@ -1,0 +1,7 @@
+find . -type d -name '.git' \
+        | while read dir ; do 
+            sh -c "cd $dir/../ \
+                && echo -e \"\n${dir//\.git/}\" \
+                && git status -s" ; 
+            done | \
+            grep -B 1 "\<M\>"
