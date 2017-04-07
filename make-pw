@@ -1,5 +1,5 @@
-# thanks to invisibleroads https://github.com/invisibleroads/scripts/blob/master/make-password.py
 #! /usr/bin/python
+# thanks to invisibleroads https://github.com/invisibleroads/scripts/blob/master/make-password.py
 import random
 import re
 import string
