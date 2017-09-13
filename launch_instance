@@ -1,0 +1,45 @@
+from os import getenv
+from crosscompute_machines import (
+    configure_settings_from_nested_dictionary, MACHINES)
+
+
+class AuthenticationException(Exception):
+    pass
+
+
+def launch_instance(image_id='ami-bb6065ad', key_name='id_rsa', instance_type='m3.medium'):
+    image_id = 'ami-bb6065ad'
+    access_token = getenv('AWS_ACCESS_TOKEN')
+    secret_token = getenv('AWS_SECRET_TOKEN')
+    if not access_token or not secret_token:
+        raise AuthenticationException
+    AWS_CONFIG = {
+        'machine': {
+            'mock': False,
+        },
+        'vendors': {
+            'aws': {
+                'access_token': access_token,
+                'secret_token': secret_token,
+                'key_name': key_name,
+            },
+        },
+        'types': {
+            'cpu_default': {
+                'vendor': {
+                    'name': 'aws',
+                    'image_id': image_id,
+                    'instance_type': instance_type,
+                },
+            },
+        },
+    }
+    configure_settings_from_nested_dictionary(AWS_CONFIG)
+    m = MACHINES.create('cpu_default')
+    return m
+
+
+if __name__ == '__main__':
+   m = launch_instance()
+   print(m)
+   print(m.wait_for_ip_address())
