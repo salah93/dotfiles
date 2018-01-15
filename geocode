@@ -1,0 +1,13 @@
+#! /home/power_ranger/.virtualenvs/env3/bin/python
+
+import geopy
+import argparse
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('address', type=str)
+    args = parser.parse_args()
+    geo = geopy.GoogleV3()
+    g = geo.geocode(args.address)
+    print('%s,%s' % (g.latitude, g.longitude))
