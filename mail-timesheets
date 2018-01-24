@@ -1,0 +1,16 @@
+#! /usr/bin/bash
+currdate=`/usr/bin/date +%d%m%Y`
+file=/tmp/${currdate}-timesheet.csv
+logs=${HOME}/.logs
+to="salah93@crosscompute.com"
+bash ${HOME}/.apis/.api_keys
+
+# construct file
+/usr/bin/awk 'BEGIN {print "Mission,Time"} c&&!--c {printf $0} /# Mission/{c=1} /## Time/ {sum +=$4; print ","$4} END {print ","sum}' $logs/*.journal > $file
+
+# mail file
+/usr/bin/mailx -a $file -s Timesheet-${currdate} -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="salah.ahmed.hslc@gmail.com(Salah Ahmed)" -S smtp-auth-user=salah.ahmed.hslc@gmail.com -S smtp-auth-password=${GMAIL_PW} -S ssl-verify=ignore -S nss-config-dir=${HOME}/.certs ${to} < /dev/null
+
+
+# compress files /usr/bin/tar cvfz ${file}.tar.gz ${file}
+# remove extention
