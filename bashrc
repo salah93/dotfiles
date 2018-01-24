@@ -24,7 +24,7 @@ if [ ! -d ${HOME}/.scripts ]
 then
     ln -s ${PROJECTS}/scripts/tools ${HOME}/.scripts
 fi
-sudo cp --no-clobber --symbolic-link ${HOME}/.scripts/* /usr/local/bin/
+PATH=${PATH}:${HOME}/.scripts
 
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.3
