@@ -1,4 +1,7 @@
 #! /usr/bin/bash
+# add to crontab, send every friday at 6pm
+# 0 18 * * 5 ${HOME}/.scripts/mail-timesheets
+
 logs=${HOME}/.logs
 if [ -d ${logs} ]
 then
