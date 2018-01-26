@@ -57,11 +57,11 @@ alias t='tail'
 # functions
 
 v() {
-    . ${WORKON_HOME}/env3/bin/activate;
+    . ${WORKON_HOME}/env/bin/activate;
 }
 
 v3() {
-    . ${WORKON_HOME}/env3/bin/activate;
+    . ${WORKON_HOME}/env/bin/activate;
 }
 
 i() {
