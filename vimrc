@@ -95,6 +95,7 @@ set tags=tags;~
 " highlight non-ascii
 syntax match nonascii "[^\x00-\x7F]"
 highlight nonascii guibg=Red ctermbg=2
+highlight Search term=reverse ctermbg=11 ctermfg=Black guibg=Yellow
 hi QuickFixLine ctermfg=blue
 hi SyntasticError ctermbg=red
 
@@ -121,3 +122,5 @@ map <Leader>vz :VimuxZoomRunner<CR>
 " map timestamp
 nnoremap TS <esc>:r !ds<cr> ^i
 
+let &colorcolumn=join(range(81,999),",")
+let &colorcolumn="80,".join(range(400,999),",")

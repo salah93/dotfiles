@@ -12,6 +12,7 @@ export WORKON_HOME=~/.virtualenvs
 export TEMPLATES=${PROJECTS}/scripts/.templates
 export LOGS=~/.logs
 export EDITOR=vim
+export TESSDATA_PREFIX=/usr/share/tesseract
 
 mkdir -p ${PROJECTS}
 if [ ! -d ${PROJECTS}/scripts ]
@@ -24,13 +25,12 @@ if [ ! -d ${HOME}/.scripts ]
 then
     ln -s ${PROJECTS}/scripts/tools ${HOME}/.scripts
 fi
-sudo cp --no-clobber --symbolic-link ${HOME}/.scripts/* /usr/local/bin/
-
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.3
 
 # PATH
 PATH=${PATH}:$SCALA_HOME/bin
+PATH=${PATH}:$HOME/.scripts
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Tokens for apis
