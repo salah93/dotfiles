@@ -16,9 +16,13 @@ Plugin 'scrooloose/syntastic'
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
+
     let g:syntastic_auto_loc_list=1
     let g:syntastic_check_on_wq = 0
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_loc_list_height=3
+    let g:syntastic_javascript_checkers = ['eslint']
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -46,6 +50,8 @@ au BufNewFile,BufFilePre,BufRead *.sc set filetype=scala
 autocmd BufRead,BufNewFile *.mako,*.mako_tmpl,*.jinja2 set filetype=html
 autocmd! FileType html,xhtml,sass,scss,css,javascript,json,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd! FileType ghmarkdown,nginx setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd! FileType python let &colorcolumn=join(range(81,999),",")
+autocmd! FileType python let &colorcolumn="80,".join(range(400,999),",")
 
 
 
@@ -95,6 +101,7 @@ set tags=tags;~
 " highlight non-ascii
 syntax match nonascii "[^\x00-\x7F]"
 highlight nonascii guibg=Red ctermbg=2
+highlight Search term=reverse ctermbg=11 ctermfg=Black guibg=Yellow
 hi QuickFixLine ctermfg=blue
 hi SyntasticError ctermbg=red
 
@@ -106,7 +113,7 @@ nnoremap <c-l> :noh<enter>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
-inoremap -- <C-K>-M
+"inoremap -- <C-K>-M
 "nnoremap <C-L> <C-W><C-L>
 
 " Prompt for a command to run
@@ -120,4 +127,3 @@ map <Leader>vz :VimuxZoomRunner<CR>
 
 " map timestamp
 nnoremap TS <esc>:r !ds<cr> ^i
-
