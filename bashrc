@@ -29,12 +29,13 @@ fi
 export SCALA_HOME=/usr/local/share/scala-2.12.3
 
 # PATH
+LD_LIBRARY_PATH=~/.boost/stage/lib/:$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
 PATH=${PATH}:$SCALA_HOME/bin
 PATH=${PATH}:$HOME/.scripts
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
-# Tokens for apis
-# source ~/.apis/.api_keys
 # Add aliases
 
 #alias ls='ls -G'
@@ -51,25 +52,28 @@ alias t='tail'
 
 
 
-# Tokens for apis
-# source ~/.apis/.api_keys
-
 # functions
-
-v() {
-    . ${WORKON_HOME}/env/bin/activate;
+git-grep() {
+    string=$1
+    if [ $# -eq 1 ]; then
+        echo here
+        git grep $string $(git rev-list --all)
+    else
+        shift
+        git grep $string $@
+    fi
 }
 
-v3() {
-    . ${WORKON_HOME}/env/bin/activate;
+v() {
+    . ${WORKON_HOME}/env3/bin/activate;
 }
 
 i() {
-    v; ipython;
+    ipython;
 }
 
 n() {
-    v; jupyter notebook;
+    jupyter lab;
 }
 
 # templates
