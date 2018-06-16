@@ -1,13 +1,33 @@
 #! /home/power_ranger/.virtualenvs/env3/bin/python
 
-import geopy
+import requests
 import argparse
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('address', type=str)
+    parser.add_argument('--house', help='house number', required=True, type=int)
+    parser.add_argument('--street', help='street', required=True, type=str)
+    parser.add_argument('--borough', help='borough', required=True, type=str)
     args = parser.parse_args()
-    geo = geopy.GoogleV3()
-    g = geo.geocode(args.address)
-    print('%s,%s' % (g.latitude, g.longitude))
+
+    base_url = "https://api.cityofnewyork.us/geoclient/v1/address.json"
+    geoclient_id = "cf3361bf"
+    geoclient_key = "b3bd547dab2eedd0aad5e2e27e554f53"
+
+
+    r = requests.get(
+        base_url,
+        dict(houseNumber=str(args.house),
+            street=args.street,
+            borough=args.borough,
+            app_id=geoclient_id,
+            app_key=geoclient_key))
+    d = r.json()
+    try:
+        lat, lng = (
+            d['address']['latitude'],
+            d['address']['longitude'])
+        print('%s,%s(lat,lng)' % (lat, lng))
+    except KeyError:
+        print('could not get geocode, check address')
