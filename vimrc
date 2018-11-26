@@ -101,8 +101,9 @@ set tags=tags;~
 " highlight non-ascii
 syntax match nonascii "[^\x00-\x7F]"
 highlight nonascii guibg=Red ctermbg=2
-highlight Search term=reverse ctermbg=11 ctermfg=Black guibg=Yellow
+highlight Search term=reverse ctermbg=yellow ctermfg=black guibg=Yellow
 hi QuickFixLine ctermfg=blue
+hi MatchParen cterm=none ctermbg=blue ctermfg=white
 hi SyntasticError ctermbg=red
 
 

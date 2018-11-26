@@ -15,18 +15,6 @@ export EDITOR=vim
 export TESSDATA_PREFIX=/usr/share/tesseract
 
 mkdir -p ${PROJECTS}
-if [ ! -d ${PROJECTS}/scripts ]
-then
-    git clone -q git@github.com:salah93/scripts ${PROJECTS}/scripts
-    chown -R ${USER}:${USER} ${PROJECTS}/scripts/tools/*
-    chmod -R 755 ${PROJECTS}/scripts/tools/*
-fi
-if [ ! -d ${HOME}/.scripts ]
-then
-    ln -s ${PROJECTS}/scripts/tools ${HOME}/.scripts
-fi
-PATH=${PATH}:${HOME}/.scripts
-
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.3
 
@@ -35,7 +23,7 @@ LD_LIBRARY_PATH=~/.boost/stage/lib/:$LD_LIBRARY_PATH
 LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 PATH=${PATH}:$SCALA_HOME/bin
-PATH=${PATH}:$HOME/.scripts
+PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Add aliases
@@ -96,6 +84,7 @@ mkapp(){
 }
 
 # virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
 # command line interface
