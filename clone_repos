@@ -1,4 +1,4 @@
-#! usr/bin/python
+#! /usr/bin/python3
 import argparse
 import subprocess
 from os import environ
@@ -26,7 +26,7 @@ if __name__ == '__main__':
                         type=str, default='~/Projects')
     # you can also add 'collaborator', 'organization_member'
     parser.add_argument('--per_page',
-                        type=int, default=30)
+                        type=int, default=60)
     parser.add_argument('--affiliation',
                         type=str, nargs='+',
                         default=['owner'])
