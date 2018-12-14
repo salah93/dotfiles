@@ -16,7 +16,7 @@ export TESSDATA_PREFIX=/usr/share/tesseract
 
 mkdir -p ${PROJECTS}
 # Scala
-export SCALA_HOME=/usr/local/share/scala-2.12.3
+export SCALA_HOME=/usr/local/share/scala-2.12.7
 
 # PATH
 LD_LIBRARY_PATH=~/.boost/stage/lib/:$LD_LIBRARY_PATH
@@ -24,22 +24,19 @@ LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 PATH=${PATH}:$SCALA_HOME/bin
 PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
 
 # Add aliases
 
-#alias ls='ls -G'
 alias ls='ls --color'
-#alias ll='ls -Gl'
 alias ll='ls -lh --color'
 alias cdp='cd -P'
-#alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 alias grep-vim="grep -wrn --exclude-dir .git '#TODO' *"
 alias vi="vim"
 alias h='head'
 alias c='cat'
 alias t='tail'
-
+alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f /.tags ./'
 
 
 # functions
@@ -55,7 +52,7 @@ git-grep() {
 }
 
 v() {
-    . ${WORKON_HOME}/env3/bin/activate;
+    . ${WORKON_HOME}/env/bin/activate;
 }
 
 i() {
@@ -133,3 +130,8 @@ end() {
 greplog() {
     grep -Hn $@ $LOGS/*
 }
+
+whatis() {
+    curl cht.sh/$1
+}
+

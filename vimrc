@@ -32,6 +32,10 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'ctrlpvim/ctrlp.vim'
     set wildignore+=*.pyc
     set wildignore+=*.egg-info
+    set wildignore+=*.zip
+    let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\v[\/]node_modules$',
+        \}
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'will133/vim-dirdiff'
 Plugin 'christoomey/vim-tmux-navigator'
