@@ -41,7 +41,11 @@ v() {
 }
 
 i() {
-    ipython;
+    ipython3;
+}
+
+py() {
+    python3;
 }
 
 n() {

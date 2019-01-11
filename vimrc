@@ -112,13 +112,12 @@ hi SyntasticError ctermbg=red
 
 " get search count
 map ,* *<C-O>:%s///gn<CR>
-nnoremap <c-l> :noh<enter>
 " Remap window movement keys
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 "inoremap -- <C-K>-M
-"nnoremap <C-L> <C-W><C-L>
 
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
@@ -137,7 +136,6 @@ nnoremap TS <esc>:r !ds<cr> ^i
 set history=500
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
@@ -198,7 +196,7 @@ map <space> /
 map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+map <silent> <leader>c :noh<cr>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
