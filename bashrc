@@ -7,21 +7,18 @@ fi
 # Define environment variables
 # Directories
 export PROJECTS=~/Projects
-export DB_FOLDER=~/.db
 export WORKON_HOME=~/.virtualenvs
-export TEMPLATES=${PROJECTS}/scripts/.templates
-export LOGS=~/.logs
-export EDITOR=vim
-export TESSDATA_PREFIX=/usr/share/tesseract
+export TEMPLATES=${HOME}/Templates
+
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 mkdir -p ${PROJECTS}
+
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.7
 
 # PATH
-LD_LIBRARY_PATH=~/.boost/stage/lib/:$LD_LIBRARY_PATH
-LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH
 PATH=${PATH}:$SCALA_HOME/bin
 PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
@@ -29,14 +26,11 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
 # Add aliases
 
 alias ls='ls --color'
-alias ll='ls -lh --color'
-alias cdp='cd -P'
-alias grep-vim="grep -wrn --exclude-dir .git '#TODO' *"
-alias vi="vim"
-alias h='head'
-alias c='cat'
-alias t='tail'
 alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f /.tags ./'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
 # functions
@@ -93,45 +87,12 @@ parse_git_branch() {
 export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
 #"]]]"
 
-start() {
-    echo "What are you working on?"
-    read mission
-    starting=$(date +%s)
-    export CURRJOURNAL=$LOGS/$starting.journal
-    echo "# Mission" >> $CURRJOURNAL
-    echo $mission >> $CURRJOURNAL
-    export STARTTIME=$starting
-}
-
-log() {
-    t=$(date +%Y%m%d-%s)
-    echo "## $t" >> $CURRJOURNAL
-    read log
-    echo $log >> $CURRJOURNAL
-}
-
-end() {
-    end=$(date +%s)
-    continue='y'
-    echo "What did you complete?"
-    echo "## Completed" >> $CURRJOURNAL
-    while [ $continue == 'y' ]; do
-        read accomplished
-        echo "+ $accomplished" >> $CURRJOURNAL
-        echo "add more? y/n "
-        read continue
-    done
-    total=$(($end - $STARTTIME))
-    echo "## Time `date -d @$STARTTIME +%Y%m%d-%s`:`date -d @$end +%Y%m%d-%s` $(($total / 60)) minutes" >> $CURRJOURNAL
-    export CURRJOURNAL=''
-    export STARTTIME=''
-}
-
-greplog() {
-    grep -Hn $@ $LOGS/*
-}
-
 whatis() {
     curl cht.sh/$1
 }
 
+
+## search history arrow up
+bind '"\e[A": history-search-backward'
+## search history arrow down
+bind '"\e[B": history-search-forward'
