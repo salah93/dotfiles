@@ -113,13 +113,13 @@ hi SyntasticError ctermbg=red
 
 " get search count
 map ,* *<C-O>:%s///gn<CR>
-nnoremap <c-l> :noh<enter>
+"nnoremap <c-l> :noh<enter>
 " Remap window movement keys
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 "inoremap -- <C-K>-M
-"nnoremap <C-L> <C-W><C-L>
+nnoremap <C-L> <C-W><C-L>
 
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>

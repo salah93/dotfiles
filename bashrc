@@ -24,6 +24,7 @@ LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 PATH=${PATH}:$SCALA_HOME/bin
 PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
+PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
 
 # Add aliases
@@ -135,3 +136,15 @@ whatis() {
     curl cht.sh/$1
 }
 
+if [ -f `which powerline-daemon` ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bash/powerline.sh
+fi
+
+
+## search history arrow up
+bind '"\e[A": history-search-backward'
+## search history arrow down
+bind '"\e[B": history-search-forward'
