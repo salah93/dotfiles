@@ -1,43 +1,27 @@
-# echo "bashrc executed"
+echo "bashrc executed"
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# Define environment variables
-# Directories
-export PROJECTS=~/Projects
-export DB_FOLDER=~/.db
-export WORKON_HOME=~/.virtualenvs
-export TEMPLATES=${PROJECTS}/scripts/.templates
-export LOGS=~/.logs
-export EDITOR=vim
-export TESSDATA_PREFIX=/usr/share/tesseract
+# aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
-mkdir -p ${PROJECTS}
-# Scala
-export SCALA_HOME=/usr/local/share/scala-2.12.7
+# some more ls aliases
+alias ll='ls -lF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
 
-# PATH
-LD_LIBRARY_PATH=~/.boost/stage/lib/:$LD_LIBRARY_PATH
-LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH
-PATH=${PATH}:$SCALA_HOME/bin
-PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
-PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
-
-# Add aliases
-
-alias ls='ls --color'
-alias ll='ls -lh --color'
-alias cdp='cd -P'
-alias grep-vim="grep -wrn --exclude-dir .git '#TODO' *"
-alias vi="vim"
-alias h='head'
-alias c='cat'
-alias t='tail'
-alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f /.tags ./'
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
 # functions
@@ -57,11 +41,15 @@ v() {
 }
 
 i() {
-    ipython;
+    ipython3;
+}
+
+py() {
+    python3;
 }
 
 n() {
-    jupyter lab;
+    jupyter notebook;
 }
 
 # templates
@@ -81,60 +69,40 @@ mkapp(){
     cp -n $TEMPLATES/app.py $1
 }
 
-# virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=`which python3`
-source /usr/local/bin/virtualenvwrapper.sh
-
-# command line interface
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# PS1
-export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
-#"]]]"
-
-start() {
-    echo "What are you working on?"
-    read mission
-    starting=$(date +%s)
-    export CURRJOURNAL=$LOGS/$starting.journal
-    echo "# Mission" >> $CURRJOURNAL
-    echo $mission >> $CURRJOURNAL
-    export STARTTIME=$starting
-}
-
-log() {
-    t=$(date +%Y%m%d-%s)
-    echo "## $t" >> $CURRJOURNAL
-    read log
-    echo $log >> $CURRJOURNAL
-}
-
-end() {
-    end=$(date +%s)
-    continue='y'
-    echo "What did you complete?"
-    echo "## Completed" >> $CURRJOURNAL
-    while [ $continue == 'y' ]; do
-        read accomplished
-        echo "+ $accomplished" >> $CURRJOURNAL
-        echo "add more? y/n "
-        read continue
-    done
-    total=$(($end - $STARTTIME))
-    echo "## Time `date -d @$STARTTIME +%Y%m%d-%s`:`date -d @$end +%Y%m%d-%s` $(($total / 60)) minutes" >> $CURRJOURNAL
-    export CURRJOURNAL=''
-    export STARTTIME=''
-}
-
-greplog() {
-    grep -Hn $@ $LOGS/*
-}
-
 whatis() {
     curl cht.sh/$1
 }
+
+bd() {
+    build_rdbms $1 --all
+}
+
+# History
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+# append to the history file, don't overwrite it
+shopt -s histappend
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make 'less' more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
