@@ -25,27 +25,16 @@ alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo 
 
 
 # functions
-git-grep() {
-    string=$1
-    if [ $# -eq 1 ]; then
-        echo here
-        git grep $string $(git rev-list --all)
-    else
-        shift
-        git grep $string $@
-    fi
-}
-
 v() {
     . ${WORKON_HOME}/env/bin/activate;
 }
 
 i() {
-    ipython3;
+    ipython3 $@;
 }
 
 py() {
-    python3;
+    python3 $@;
 }
 
 n() {
