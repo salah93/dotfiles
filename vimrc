@@ -111,6 +111,7 @@ hi SyntasticError ctermbg=red
 
 " get search count
 map ,* *<C-O>:%s///gn<CR>
+"nnoremap <c-l> :noh<enter>
 " Remap window movement keys
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
