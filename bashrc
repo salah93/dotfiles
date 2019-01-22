@@ -3,6 +3,18 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
+# command line interface
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# PS1
+export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
+#"]]]"
+
 # aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -91,14 +103,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-if [ -f `which powerline-daemon` ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bash/powerline.sh
-fi
-
 
 ## search history arrow up
 bind '"\e[A": history-search-backward'
