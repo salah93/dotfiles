@@ -74,7 +74,25 @@ whatis() {
 }
 
 bd() {
-    build_rdbms $1 --all
+    case $RESY_ENV in
+    "api")
+       connection="local"
+       ;;
+    "inventory")
+        connection="inventory"
+        ;;
+    "menu")
+        connection="menu"
+        ;;
+    *)
+        connection="local"
+        ;;
+    esac
+    build_rdbms ${connection} --all
+}
+
+gb() {
+    grep- -i --include "build.py" $@
 }
 
 # History

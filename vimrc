@@ -9,17 +9,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'valloric/MatchTagAlways'
-Plugin 'scrooloose/syntastic'
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_auto_loc_list=1
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_loc_list_height=3
-    let g:syntastic_javascript_checkers = ['eslint']
+Plugin 'w0rp/ale'
+    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_enter = 0
+    let g:ale_lint_on_save = 1
+    let g:ale_linters = {
+    \ 'python':  ['flake8'],
+    \ }
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -192,8 +188,11 @@ endfunction
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+"map <space> /
+"map <c-space> ?
+nnoremap <space>l :lnext<CR>
+nnoremap <space>p :lprevious<CR>
+nnoremap <space>r :lrewind<CR>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader>c :noh<cr>
@@ -238,3 +237,25 @@ map <leader>s? z=
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+function! MarkWindowSwap()
+    let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+    "Mark destination
+    let curNum = winnr()
+    let curBuf = bufnr( "%" )
+    exe g:markedWinNum . "wincmd w"
+    "Switch to source and shuffle dest->source
+    let markedBuf = bufnr( "%" )
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curBuf
+    "Switch to dest and shuffle source->dest
+    exe curNum . "wincmd w"
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedBuf
+endfunction
+
+nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
+nmap <silent> <leader>pw :call DoWindowSwap()<CR>
