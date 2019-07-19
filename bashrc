@@ -4,6 +4,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
 # command line interface
