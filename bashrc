@@ -36,27 +36,16 @@ alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo 
 
 
 # functions
-git-grep() {
-    string=$1
-    if [ $# -eq 1 ]; then
-        echo here
-        git grep $string $(git rev-list --all)
-    else
-        shift
-        git grep $string $@
-    fi
-}
-
 v() {
     . ${WORKON_HOME}/env/bin/activate;
 }
 
 i() {
-    ipython3;
+    ipython3 $@;
 }
 
 py() {
-    python3;
+    python3 $@;
 }
 
 n() {
@@ -85,7 +74,25 @@ whatis() {
 }
 
 bd() {
-    build_rdbms $1 --all
+    case $RESY_ENV in
+    "api")
+       connection="local"
+       ;;
+    "inventory")
+        connection="inventory"
+        ;;
+    "menu")
+        connection="menu"
+        ;;
+    *)
+        connection="local"
+        ;;
+    esac
+    build_rdbms ${connection} --all
+}
+
+gb() {
+    grep- -i --include "build.py" $@
 }
 
 # History
