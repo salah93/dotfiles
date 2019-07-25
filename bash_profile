@@ -12,6 +12,9 @@ export TEMPLATES=${HOME}/Templates
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+# ls colors
+export LSCOLORS='gxfxcxdxbxegedabagacad'
+
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.7
 
