@@ -13,9 +13,14 @@ Plugin 'w0rp/ale'
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
     let g:ale_lint_on_save = 1
+    let g:ale_fix_on_save = 1
+    let b:ale_fixers = {
+    \ 'python': ['black'],
+    \ }
     let g:ale_linters = {
     \ 'python':  ['flake8'],
     \ }
+Plugin 'psf/black'
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
