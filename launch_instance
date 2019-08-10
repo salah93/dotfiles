@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from os import getenv
 from crosscompute_machines import (
     configure_settings_from_nested_dictionary, MACHINES)
