@@ -30,6 +30,9 @@ alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
+alias gt='git commit --allow-empty -m  "trigger"'
+alias gs='git status'
+alias gd='git diff'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -46,7 +49,7 @@ i() {
 }
 
 py() {
-    python3 $@;
+    python3.5 $@;
 }
 
 n() {
@@ -89,7 +92,7 @@ bd() {
         connection="local"
         ;;
     esac
-    build_rdbms ${connection} --all
+    /opt/tinyAPI/utils/build_rdbms ${connection} --all
 }
 
 gb() {

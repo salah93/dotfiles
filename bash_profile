@@ -24,3 +24,6 @@ PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export APP_SERVER_ENV=local
+
+source ${HOME}/envs/api.env
