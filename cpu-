@@ -1,2 +1,0 @@
-echo "PID CPU% COMMAND"
-ps aux | awk '/[a-z]/ {print $2,$3,$11}' | sort -t ' ' -k 2 -n | tail
