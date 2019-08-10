@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+echo https://truveris.github.io/articles/configuring-pypirc/
+echo python setup.py sdist bdist_wheel
+echo pip install twine
+echo twine upload --repository-url testpypi dist/\*
+echo twine upload dist/\*
