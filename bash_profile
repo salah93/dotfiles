@@ -27,3 +27,5 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export APP_SERVER_ENV=local
 
 source ${HOME}/envs/api.env
+export TERM=xterm-256color
+

@@ -15,13 +15,14 @@ Plugin 'w0rp/ale'
     let g:ale_lint_on_enter = 0
     let g:ale_lint_on_save = 1
     let g:ale_fix_on_save = 1
-    let b:ale_fixers = {
+    let g:ale_fixers = {
     \ 'python': ['black'],
     \ }
     let g:ale_linters = {
     \ 'python':  ['flake8'],
     \ }
 Plugin 'psf/black'
+Plugin 'jnurmine/Zenburn'
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -40,6 +41,7 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'Raimondi/delimitMate'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -121,13 +123,13 @@ nnoremap <C-L> <C-W><C-L>
 "inoremap -- <C-K>-M
 
 " Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
+map <leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
+map <leader>vl :VimuxRunLastCommand<CR>
 " Inspect runner pane
-map <Leader>vi :VimuxInspectRunner<CR>
+map <leader>vi :VimuxInspectRunner<CR>
 " Zoom the tmux runner pane
-map <Leader>vz :VimuxZoomRunner<CR>
+map <leader>vz :VimuxZoomRunner<CR>
 
 " map timestamp
 nnoremap TS <esc>:r !ds<cr> ^i
@@ -264,4 +266,10 @@ endfunction
 
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
-color desert
+
+"color desert
+color zenburn
+
+" you complete me options
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
