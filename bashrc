@@ -12,9 +12,31 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+find_git_dirty() {
+  local status=$(git status --untracked=no --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+    echo '***'
+  else
+    echo ''
+  fi
+}
+
 # PS1
-export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
-#"]]]"
+# \[  \] - start/stop command
+# \e[ start color scheme
+# m stop color scheme
+# 0;xx  color scheme (Dark)
+# 1;xx  color scheme (light)
+#
+#    Normal Text: 0
+#    Bold or Light Text: 1 (It depends on the terminal emulator.)
+#    Dim Text: 2
+#    Underlined Text: 4
+#    Blinking Text: 5 (This does not work in most terminal emulators.)
+#    Reversed Text: 7 (This inverts the foreground and background colors, so you’ll see black text on a white background if the current text is white text on a black background.)
+#    Hidden Text: 8
+
+export PS1="\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
 
 # aliases
 if [ -x /usr/bin/dircolors ]; then
