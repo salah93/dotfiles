@@ -4,16 +4,12 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Directories
-export PROJECTS=~/Projects
-export EXPERIMENTS=~/Experiments
-export WORKON_HOME=~/.virtualenvs
-export TEMPLATES=${HOME}/Templates
-
 export VISUAL=vim
 export EDITOR=$VISUAL
 
 # ls colors
 export LSCOLORS='gxfxcxdxbxegedabagacad'
+export TERM=xterm-256color
 
 # Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.7
@@ -21,11 +17,6 @@ export SCALA_HOME=/usr/local/share/scala-2.12.7
 # PATH
 PATH=${PATH}:$SCALA_HOME/bin
 PATH=${PATH}:/usr/local/lib/node-v10.13.0-linux-x64/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
-
+PATH=${PATH}:/usr/local/share/applications/charles-proxy-4.2.8_amd64/charles/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/.scripts/
 export PATH="$HOME/.poetry/bin:$PATH"
-export APP_SERVER_ENV=local
-
-source ${HOME}/envs/api.env
-export TERM=xterm-256color
-
