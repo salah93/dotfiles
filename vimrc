@@ -42,6 +42,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on

@@ -8,6 +8,10 @@ export ZSH="/home/salah/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# /home/salah/.oh-my-zsh/themes/agnoster.zsh-theme
+# /home/salah/.oh-my-zsh/themes/jonathan.zsh-theme
+# /home/salah/.oh-my-zsh/themes/superjarin.zsh-theme
+# /home/salah/.oh-my-zsh/themes/kardan.zsh-theme
 ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
@@ -104,6 +108,7 @@ whatis() {
 alias gt='git commit --allow-empty -m  "trigger"'
 alias gs='git status'
 alias gd='git diff'
+alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
 
 # direnv
 eval "$(direnv hook zsh)"
