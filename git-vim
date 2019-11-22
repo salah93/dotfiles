@@ -1,1 +1,1 @@
-git status -s | awk '{print $2}' | xargs bash -c '</dev/tty vim $@' ignoreme
+git status -s | awk '{print $2}' | xargs bash -c '</dev/tty vim -O $@' ignoreme
