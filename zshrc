@@ -12,7 +12,7 @@ export ZSH="/home/salah/.oh-my-zsh"
 # /home/salah/.oh-my-zsh/themes/jonathan.zsh-theme
 # /home/salah/.oh-my-zsh/themes/superjarin.zsh-theme
 # /home/salah/.oh-my-zsh/themes/kardan.zsh-theme
-ZSH_THEME="random"
+ZSH_THEME="kardan"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
