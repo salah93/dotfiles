@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 echo https://truveris.github.io/articles/configuring-pypirc/
 echo python setup.py sdist bdist_wheel
 echo pip install twine

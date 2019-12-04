@@ -1,1 +1,1 @@
-grep- -l $@ | xargs bash -c '</dev/tty vim $@' ignoreme
+grep- -l $@ | xargs bash -c '</dev/tty vim -O $@' ignoreme
