@@ -113,6 +113,4 @@ alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags .
 # direnv
 eval "$(direnv hook zsh)"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
+source <(doctl completion zsh)
