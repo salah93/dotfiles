@@ -20,6 +20,3 @@ PATH=/usr/local/lib/node-v10.13.0-linux-x64/bin:$PATH
 PATH=/usr/local/share/applications/charles-proxy-4.2.8_amd64/charles/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.scripts:$PATH
-
-#LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/lib

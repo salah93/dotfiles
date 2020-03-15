@@ -10,6 +10,3 @@ export TERM=xterm-256color
 export GOPATH=$HOME/Experiments/go/
 
 export GPG_TTY=$(tty)
-
-#LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/lib
