@@ -7,8 +7,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'w0rp/ale'
     let g:ale_lint_on_text_changed = 0
@@ -21,7 +21,6 @@ Plugin 'w0rp/ale'
     let g:ale_linters = {
     \ 'python':  ['flake8'],
     \ }
-Plugin 'psf/black'
 Plugin 'jnurmine/Zenburn'
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
@@ -29,6 +28,10 @@ Plugin 'davidhalter/jedi-vim'
     let g:jedi#smart_auto_mappings = 0
 Plugin 'bling/vim-airline'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'benmills/vimux'
+Plugin 'Raimondi/delimitMate'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
     set wildignore+=*.pyc
     set wildignore+=*.egg-info
@@ -39,10 +42,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'will133/vim-dirdiff'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'benmills/vimux'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on
