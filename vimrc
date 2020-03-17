@@ -89,7 +89,6 @@ set backspace=2
 " ctags
 set tags=tags;~
 
-
 " highlight non-ascii
 syntax match nonascii "[^\x00-\x7F]"
 highlight nonascii guibg=Red ctermbg=2
@@ -97,7 +96,6 @@ highlight Search term=reverse ctermbg=yellow ctermfg=black guibg=Yellow
 hi QuickFixLine ctermfg=blue
 hi MatchParen cterm=none ctermbg=blue ctermfg=white
 hi SyntasticError ctermbg=red
-
 
 " get search count
 map ,* *<C-O>:%s///gn<CR>
@@ -190,18 +188,12 @@ function! CmdLine(str)
 endfunction
 
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-"map <space> /
-"map <c-space> ?
 nnoremap <space>l :lnext<CR>
 nnoremap <space>p :lprevious<CR>
 nnoremap <space>r :lrewind<CR>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader>c :noh<cr>
-
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -244,7 +236,6 @@ endfunction
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
-"color desert
 color zenburn
 
 " you complete me options
