@@ -17,6 +17,7 @@ Plugin 'w0rp/ale'
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
     \ 'python': ['black'],
+	\ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ }
     let g:ale_linters = {
     \ 'python':  ['flake8'],
@@ -63,15 +64,6 @@ autocmd! FileType python let &colorcolumn="90,".join(range(400,999),",")
 " vim_markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
-
-" Strip trailing whitespace
-fun! <SID>StripTrailingWhitespace()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd BufWritePre *.md :call <SID>StripTrailingWhitespace()
 
 " Define hierarchical folds for goals
 autocmd BufRead,BufNewFile *.goals set filetype=goals
@@ -192,6 +184,11 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
@@ -209,25 +206,6 @@ map <leader>h :bprevious<cr>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
-
-" Delete trailing white space on save, useful for some filetypes ;)
-fun! CleanExtraSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
-endfun
-
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
