@@ -82,11 +82,6 @@ set hlsearch       " Highlight matches
 set incsearch      " Search incrementally
 
 
-" Remap tab movement keys
-map <Leader>[ <esc>:tabprevious<CR>
-map <Leader>] <esc>:tabnext<CR>
-nmap zz :%s/\s\+$//<enter>
-
 " Configure miscellaneous settings
 set autochdir      " Change directory to the folder containing the current file
 set backspace=2
@@ -114,6 +109,21 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 "inoremap -- <C-K>-M
 
+" map timestamp
+nnoremap TS <esc>:r !ds<cr> ^i
+
+set history=500
+
+" With a map leader it's possible to do extra key combinations
+let mapleader = ","
+let g:mapleader = ","
+
+" Remap tab movement keys
+map <Leader>[ <esc>:tabprevious<CR>
+map <Leader>] <esc>:tabnext<CR>
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
 " Prompt for a command to run
 map <leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
@@ -122,17 +132,6 @@ map <leader>vl :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInspectRunner<CR>
 " Zoom the tmux runner pane
 map <leader>vz :VimuxZoomRunner<CR>
-
-" map timestamp
-nnoremap TS <esc>:r !ds<cr> ^i
-
-
-
-set history=500
-
-" With a map leader it's possible to do extra key combinations
-let mapleader = ","
-let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
