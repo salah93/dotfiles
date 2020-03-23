@@ -63,6 +63,7 @@ autocmd! FileType python let &colorcolumn="90,".join(range(400,999),",")
 
 " vim_markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.rst set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
 " Define hierarchical folds for goals

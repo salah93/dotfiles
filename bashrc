@@ -12,6 +12,16 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+parse_tf_workspace() {
+    if stat -t *.tf > /dev/null 2>&1
+    then
+        if hash terraform 2>/dev/null
+        then
+            terraform workspace show 2> /dev/null | sed -e 's/\(.*\)/ (\1)/'
+        fi
+    fi
+}
+
 find_git_dirty() {
   local status=$(git status --untracked=no --porcelain 2> /dev/null)
   if [[ "$status" != "" ]]; then
@@ -36,7 +46,7 @@ find_git_dirty() {
 #    Reversed Text: 7 (This inverts the foreground and background colors, so you’ll see black text on a white background if the current text is white text on a black background.)
 #    Hidden Text: 8
 
-export PS1="\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
+export PS1="\[\e[2;33m\]\$(parse_tf_workspace) \[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
 
 # aliases
 if [ -x /usr/bin/dircolors ]; then
