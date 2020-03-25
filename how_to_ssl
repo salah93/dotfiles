@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo sudo dnf install certbot certbot-nginx
+echo sudo certbot --nginx -d salah.xyz
+echo '# renew cron'
+echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew -q"
+echo '# test'
+echo sudo certbot renew --dry-run
