@@ -70,6 +70,7 @@ alias gd='git diff'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+export WORKON_HOME=$HOME/.virtualenvs
 
 # functions
 v() {
@@ -77,7 +78,11 @@ v() {
 }
 
 i() {
-    ipython3 $@;
+    ipython $@;
+}
+
+b() {
+    bpython -i ~/.config/bpython/auto_import.py
 }
 
 py() {
