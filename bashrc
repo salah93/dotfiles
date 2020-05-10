@@ -85,6 +85,10 @@ b() {
     bpython -i ~/.config/bpython/auto_import.py
 }
 
+vm() {
+    vim --noplugin $@
+}
+
 py() {
     python3.5 $@;
 }
