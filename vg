@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+vim $(sk -m -i -c 'git grep -rIl "{}" . | xargs -I{} realpath "{}" --relative-to "./"' \
+            --bind pgup:preview-page-up,pgdn:preview-page-down    \
+            --preview "bat --color=always --line-range :500           \
+                    --terminal-width 80 --theme=TwoDark {+}           \
+                    --italic-text=always                              \
+                    --decorations=always"                             \
+            --color="fg:#f8f8f2,bg:-1,matched:#6272a4,current_fg:#50fa7b,current_bg:#381070,border:#ff79c6,prompt:#bd93f9,query:#bd93f9,marker:#f1fa8c,header:#f1fa8c")
