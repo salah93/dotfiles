@@ -2,4 +2,4 @@
 
 find '.' -name '*.pyc' -o -name '*.pyo' -o -name '__pycache__' -o -name '.cache' \
     -o -name 'build' -o -name 'dist' -o -name '*.egg*' -o -name '.coverage' -o -name '.ipynb_checkpoints' \
-    -o -name '.swp' -o -name '.swo' -o -name "dump.rdb" | xargs -i rm -rf {}
+    -o -name '.swp' -o -name '.swo' -o -name "dump.rdb" | xargs -I{} rm -rf {}
