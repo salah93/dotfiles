@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-vim $(sk -m -i -c 'git grep -rIl "{}" . | xargs -I{} realpath "{}" --relative-to "./"' \
+vim $(sk -m -i -c 'git grep -rIl "{}" . | xargs -I% echo ./%' \
             --bind pgup:preview-page-up,pgdn:preview-page-down    \
             --preview "bat --color=always --line-range :500           \
                     --terminal-width 80 --theme=TwoDark {+}           \
