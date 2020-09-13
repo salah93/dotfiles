@@ -3,6 +3,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+ln -s ~/src/resy/docker-environments/scripts ~/.docker-scripts
+
+#vim /Users/salahahmed/.virtualenvs/env/lib/python3.7/site-packages/fancycompleter.py
+
 # virtualenvwrapper
 #export VIRTUALENVWRAPPER_PYTHON=`which python3`
 #source /usr/local/bin/virtualenvwrapper.sh
@@ -46,7 +50,9 @@ find_git_dirty() {
 #    Reversed Text: 7 (This inverts the foreground and background colors, so you’ll see black text on a white background if the current text is white text on a black background.)
 #    Hidden Text: 8
 
-export PS1="\[\e[2;33m\]\$(parse_tf_workspace)\[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
+# export PS1="\[\e[2;33m\]\$(parse_tf_workspace)\[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
+export PS1="\[\e[2;33m\]\$(parse_tf_workspace)\[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]resy \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
+#"]]]"
 
 # aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -58,13 +64,15 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lF'
+alias ll='ls -lFG'
 alias la='ls -A'
 alias l='ls -CF'
-alias ct='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
+alias ct='/usr/local/bin/ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
 alias gt='git commit --allow-empty -m  "trigger"'
 alias gs='git status'
 alias gd='git diff'
+alias dc='docker-compose -f ~/src/resy/docker-environments/docker-compose.yml'
+alias u='dc run api-unit-tests pytest'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -87,6 +95,10 @@ b() {
 
 vm() {
     vim --noplugin $@
+}
+
+vf() {
+    vim `fzf`
 }
 
 py() {

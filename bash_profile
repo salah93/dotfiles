@@ -14,4 +14,5 @@ export TERM=xterm-256color
 # PATH
 PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.scripts:$PATH
+export PATH=$PATH:~/.docker-scripts
 export GPG_TTY=$(tty)
