@@ -42,7 +42,7 @@ find_git_dirty() {
 #    Reversed Text: 7 (This inverts the foreground and background colors, so you’ll see black text on a white background if the current text is white text on a black background.)
 #    Hidden Text: 8
 
-export PS1="\[\e[2;33m\]\$(parse_tf_workspace)\[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]resy \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
+export PS1="\[\e[2;33m\]\$(parse_tf_workspace)\[\e[2;00m\]\u\[\e[2;35m\]@\[\e[2;00m\]\h \[\e[2;32m\]\W \[\e[2;33m\]\$(parse_git_branch)\[\e[2;31m\]\$(find_git_dirty)\[\e[2;00m\]\$ "
 
 # aliases
 if [ -x /usr/bin/dircolors ]; then
