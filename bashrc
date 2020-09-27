@@ -3,10 +3,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# virtualenvwrapper
-#export VIRTUALENVWRAPPER_PYTHON=`which python3`
-#source /usr/local/bin/virtualenvwrapper.sh
-
 # command line interface
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -98,33 +94,11 @@ n() {
 }
 
 mkapp(){
-    cp -n $TEMPLATES/app.py $1
+   cookiecutter gh:salah93/cookiecutter-python-project
 }
 
 whatis() {
     curl cht.sh/$1
-}
-
-bd() {
-    case $RESY_ENV in
-    "api")
-       connection="local"
-       ;;
-    "inventory")
-        connection="inventory"
-        ;;
-    "menu")
-        connection="menu"
-        ;;
-    *)
-        connection="local"
-        ;;
-    esac
-    /opt/tinyAPI/utils/build_rdbms ${connection} --all
-}
-
-gb() {
-    grep- -i --include "build.py" $@
 }
 
 # History
