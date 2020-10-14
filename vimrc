@@ -11,6 +11,7 @@ Plugin 'tpope/vim-rhubarb'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'valloric/MatchTagAlways'
+Plugin 'dag/vim-fish'
 Plugin 'w0rp/ale'
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
