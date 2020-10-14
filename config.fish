@@ -37,11 +37,6 @@ function whatis
     curl cht.sh/$argv[1]
 end
 
-# # Source any fish files
-for file in $HOME/.config/fish/conf.d/*.fish
-	source $file
-end
-
 alias ct='/usr/local/bin/ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
 alias gt='git commit --allow-empty -m  "trigger"'
 alias gs='git status'
