@@ -143,3 +143,8 @@ bind '"\e[B": history-search-forward'
 # direnv
 eval "$(direnv hook bash)"
 source <(doctl completion bash)
+
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  vim $(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+}
