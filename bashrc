@@ -145,5 +145,17 @@ bind '"\e[B": history-search-forward'
 
 
 # direnv
-eval "$(direnv hook bash)"
-source <(doctl completion bash)
+
+if hash direnv 2> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
+
+if hash doctl 2> /dev/null; then
+    source <(doctl completion bash)
+fi
+
+if hash pyenv 2> /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
