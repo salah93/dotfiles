@@ -69,6 +69,12 @@ alias alert='notify-send --urgency=low -i "$([ 0 = 0 ] && echo terminal || echo 
 export WORKON_HOME=$HOME/.virtualenvs
 
 # functions
+
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  vim $(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+}
+
 v() {
     . ${WORKON_HOME}/env/bin/activate;
 }
@@ -143,8 +149,6 @@ bind '"\e[A": history-search-backward'
 ## search history arrow down
 bind '"\e[B": history-search-forward'
 
-
-# direnv
 
 if hash direnv 2> /dev/null; then
     eval "$(direnv hook bash)"

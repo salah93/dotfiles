@@ -14,7 +14,7 @@ end
 
 function parse_tf_workspace
     if test -e .terraform
-        if hash terraform 2>/dev/null
+        if command -v terraform > /dev/null 2>&1
             terraform workspace show 2> /dev/null | sed -e 's/\(.*\)/(\1) /'
         end
     end
@@ -22,7 +22,7 @@ end
 
 function find_git_dirty
   set -l _git_status (git status --untracked=no --porcelain 2> /dev/null)
-  if test "$_git_status" != "" 
+  if test "$_git_status" != ""
     echo '***'
   else
     echo ''
@@ -48,10 +48,12 @@ alias gd='git diff'
 bind -k up history-search-backward
 
 # pyenv
-pyenv init - | source
-
-# direnv
-eval (direnv hook fish)
+command -v pyenv > /dev/null 2>&1; and pyenv init - | source
+#
+#
+## direnv
+#
+command -v direnv > /dev/null 2>&1; and eval (direnv hook fish)
 
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
