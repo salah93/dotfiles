@@ -134,6 +134,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 ## search history arrow up
 bind '"\e[A": history-search-backward'
 ## search history arrow down
