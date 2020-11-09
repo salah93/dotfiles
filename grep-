@@ -1,2 +1,2 @@
 # thanks to invisibleroads https://github.com/invisibleroads/scripts/blob/master/grep-
-grep -r --exclude-dir .git --exclude-dir .tox --exclude-dir env "$@" .
+grep -r --exclude-dir .git --exclude-dir .tox --exclude-dir __pycache__ --exclude-dir env "$@" .
