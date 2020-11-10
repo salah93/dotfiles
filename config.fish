@@ -41,10 +41,6 @@ function mkapp
     cookiecutter gh:salah93/cookiecutter-python-project
 end
 
-alias ct='/usr/local/bin/ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./'
-alias gt='git commit --allow-empty -m  "trigger"'
-alias gs='git status'
-alias gd='git diff'
 bind -k up history-search-backward
 
 # pyenv
