@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+DIR=${1:-.}
+
+du -a $DIR | sort -n -r | head -n 5
