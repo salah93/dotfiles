@@ -6,7 +6,7 @@ set -x GPG_TTY (tty)
 set -x LSCOLORS 'gxfxcxdxbxegedabagacad'
 set -x TERM xterm-256color
 ## PATH
-set -x PATH $PATH $HOME/.local/bin $HOME/.scripts $HOME/.docker-scripts
+set -x PATH $PATH $HOME/.local/bin $HOME/.scripts $HOME/.docker-scripts $HOME/.cargo/bin
 
 function parse_git_branch
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
