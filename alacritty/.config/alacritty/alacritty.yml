@@ -70,6 +70,8 @@ key_bindings:
   - { key: Down,     mods: Control|Shift, chars: "\x02\x4a" }
   - { key: Up,       mods: Control|Shift, chars: "\x02\x4b" }
   - { key: Right,    mods: Control|Shift, chars: "\x02\x4c" }
+  ## zoom
+  - { key: Return,   mods: Command|Shift, chars: "\x02\x7a" }
   # move forward one word
   - { key: F,        mods: Alt,           chars: "\x1bf"    }
   # move backwards one word
