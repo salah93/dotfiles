@@ -69,3 +69,8 @@ key_bindings:
   - { key: H,        mods: Alt,           chars: "\x1bh"    }
   - { key: L,        mods: Alt,           chars: "\x1bl"    }
   - { key: Key6,     mods: Control,       chars: "\x1e"     }
+
+window:
+  dimensions:
+    columns: 180
+    lines: 40
