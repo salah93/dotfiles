@@ -42,7 +42,7 @@ shell:
     - --login
 
 key_bindings:
-  - { key: D,        mods: Command,       chars: "\x02\x76" } 
+  - { key: D,        mods: Command,       chars: "\x02\x76" }
   - { key: D,        mods: Command|Shift, chars: "\x02\x73" }
   - { key: W,        mods: Command,       chars: "\x02\x78" }
   - { key: H,        mods: Command,       chars: "\x02\x68" }
