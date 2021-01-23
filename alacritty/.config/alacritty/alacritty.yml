@@ -65,6 +65,11 @@ key_bindings:
   - { key: Key7,     mods: Command,       chars: "\x02\x37" }
   - { key: Key8,     mods: Command,       chars: "\x02\x38" }
   - { key: Key9,     mods: Command,       chars: "\x02\x39" }
+  ## resize panes
+  - { key: Left,     mods: Control|Shift, chars: "\x02\x48" }
+  - { key: Down,     mods: Control|Shift, chars: "\x02\x4a" }
+  - { key: Up,       mods: Control|Shift, chars: "\x02\x4b" }
+  - { key: Right,    mods: Control|Shift, chars: "\x02\x4c" }
   # move forward one word
   - { key: F,        mods: Alt,           chars: "\x1bf"    }
   # move backwards one word
