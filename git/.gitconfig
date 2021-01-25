@@ -1,0 +1,17 @@
+[user]
+	name   = Salah Ahmed
+	email  = salahs.email@pm.me
+[core]
+	editor = vim
+[alias]
+    st     = status --short -uno
+    ci     = commit
+    ca     = commit --amend
+    caa    = commit -a --amend
+    ct     = commit --allow-empty -m 'trigger'
+    br     = branch
+    co     = checkout
+    df     = diff
+    lg     = log -p --pretty=fuller --abbrev-commit
+    lgg    = log --pretty=fuller --abbrev-commit --stat
+    up     = pull --rebase
