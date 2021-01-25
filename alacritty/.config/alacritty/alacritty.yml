@@ -11,6 +11,14 @@
 #import:
 #  - /path/to/alacritty.yml
 
+# specify your shell here
+shell:
+  program: /usr/local/bin/fish
+  args:
+    - --login
+
+# for SF Mono font, install it first from https://developer.apple.com/fonts/
+# for linux unpackage the DMG and move .otf/.ttf files to ~/.fonts directory
 font:
   normal:
     family: SF Mono
@@ -36,20 +44,18 @@ colors:
     cursor: '0xff2600'
 
 hide_cursor_when_typing: true
-shell:
-  program: /usr/local/bin/fish
-  args:
-    - --login
 
 key_bindings:
-  - { key: D,        mods: Command,       chars: "\x02\x76" } 
+  # tmux
+  ## split panes
+  - { key: D,        mods: Command,       chars: "\x02\x76" }
   - { key: D,        mods: Command|Shift, chars: "\x02\x73" }
+  ## close pane
   - { key: W,        mods: Command,       chars: "\x02\x78" }
-  - { key: H,        mods: Command,       chars: "\x02\x68" }
-  - { key: J,        mods: Command,       chars: "\x02\x6a" }
-  - { key: K,        mods: Command,       chars: "\x02\x6b" }
-  - { key: L,        mods: Command,       chars: "\x02\x6c" }
+  ## create a new window
   - { key: T,        mods: Command,       chars: "\x02\x63" }
+  ## jump to window index i
+  - { key: Key0,     mods: Command,       chars: "\x02\x30" }
   - { key: Key1,     mods: Command,       chars: "\x02\x31" }
   - { key: Key2,     mods: Command,       chars: "\x02\x32" }
   - { key: Key3,     mods: Command,       chars: "\x02\x33" }
@@ -59,13 +65,28 @@ key_bindings:
   - { key: Key7,     mods: Command,       chars: "\x02\x37" }
   - { key: Key8,     mods: Command,       chars: "\x02\x38" }
   - { key: Key9,     mods: Command,       chars: "\x02\x39" }
-  - { key: Up,       mods: Command,       chars: "\x02\x4b" }
-  - { key: Right,    mods: Command,       chars: "\x02\x4c" }
+  ## resize panes
+  - { key: Left,     mods: Control|Shift, chars: "\x02\x48" }
+  - { key: Down,     mods: Control|Shift, chars: "\x02\x4a" }
+  - { key: Up,       mods: Control|Shift, chars: "\x02\x4b" }
+  - { key: Right,    mods: Control|Shift, chars: "\x02\x4c" }
+  ## zoom
+  - { key: Return,   mods: Command|Shift, chars: "\x02\x7a" }
+  # move forward one word
   - { key: F,        mods: Alt,           chars: "\x1bf"    }
+  # move backwards one word
   - { key: B,        mods: Alt,           chars: "\x1bb"    }
+  # delete forward one word
   - { key: D,        mods: Alt,           chars: "\x1bd"    }
+  # vim bindings, move in insert mode
   - { key: J,        mods: Alt,           chars: "\x1bj"    }
   - { key: K,        mods: Alt,           chars: "\x1bk"    }
   - { key: H,        mods: Alt,           chars: "\x1bh"    }
   - { key: L,        mods: Alt,           chars: "\x1bl"    }
+  # vim bindings, jump to last file
   - { key: Key6,     mods: Control,       chars: "\x1e"     }
+
+window:
+  dimensions:
+    columns: 180
+    lines: 40

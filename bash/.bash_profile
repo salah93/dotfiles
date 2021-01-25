@@ -16,3 +16,4 @@ PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export GPG_TTY=$(tty)
+source "$HOME/.cargo/env"
