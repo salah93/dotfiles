@@ -1,6 +1,9 @@
+[includeIf "gitdir:**"]
+  path = .gitconfig-personal
+[includeIf "gitdir:~/src/resy/"]
+  path = .gitconfig-work
 [user]
 	name   = Salah Ahmed
-	email  = salahs.email@pm.me
 [core]
 	editor = vim
 [alias]
