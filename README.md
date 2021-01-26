@@ -10,7 +10,9 @@ cd
 git clone git@github.com:salah93/dotfiles
 cd dotfiles
 sudo dnf install stow
+stow git
 stow fish
 stow vim
 stow tmux
+stow alacritty
 ```
