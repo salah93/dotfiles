@@ -17,3 +17,5 @@
     up     = pull --rebase
 [includeIf "gitdir:~/src/resy/"]
   path = .gitconfig-work
+[includeIf "gitdir:~/src/crosscompute/"]
+  path = .gitconfig-crosscompute
