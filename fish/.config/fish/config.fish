@@ -50,6 +50,3 @@ command -v pyenv > /dev/null 2>&1; and pyenv init - | source
 ## direnv
 #
 command -v direnv > /dev/null 2>&1; and eval (direnv hook fish)
-
-# iTerm2 integration
-[ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
