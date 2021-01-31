@@ -7,6 +7,7 @@ end
 
 if test -z $SSH_ENV
     set -xg SSH_ENV $HOME/.ssh/environment
-else if test -f $SSH_ENV
+end
+if test -f $SSH_ENV
     source $SSH_ENV
 end
