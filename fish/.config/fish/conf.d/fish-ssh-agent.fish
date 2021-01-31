@@ -1,5 +1,8 @@
+set -x DISPLAY :0
 if test -e /usr/libexec/openssh/ssh-askpass
     set -x SSH_ASKPASS /usr/libexec/openssh/ssh-askpass
+else if test -q ssh-askpass
+    set -x SSH_ASKPASS (which ssh-askpass)
 end
 
 if test -z "$SSH_ENV"
