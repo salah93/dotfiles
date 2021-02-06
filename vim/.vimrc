@@ -30,6 +30,7 @@ Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
     let g:jedi#smart_auto_mappings = 0
+Plugin 'fatih/vim-go'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'benmills/vimux'
 Plugin 'Raimondi/delimitMate'
