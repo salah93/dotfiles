@@ -26,7 +26,6 @@ Plugin 'w0rp/ale'
     \ 'python':  ['flake8'],
     \ 'go':  ['golint', 'errcheck', 'deadcode', 'go vet'],
     \ }
-Plugin 'jnurmine/Zenburn'
 Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
     let g:jedi#popup_on_dot = 0
@@ -34,7 +33,6 @@ Plugin 'davidhalter/jedi-vim'
     let g:jedi#smart_auto_mappings = 0
 Plugin 'fatih/vim-go'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'benmills/vimux'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
@@ -43,11 +41,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
     set wildignore+=*.egg-info
     set wildignore+=*.zip
     let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]node_modules$',
+        \ 'dir':  '\v[\/](node_modules|\.git|__pycache__)$',
         \}
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'will133/vim-dirdiff'
+Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'morhetz/gruvbox'
+Plugin 'jnurmine/Zenburn'
 
 call vundle#end()
 filetype plugin indent on
@@ -136,6 +137,9 @@ map <leader>vl :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInspectRunner<CR>
 " Zoom the tmux runner pane
 map <leader>vz :VimuxZoomRunner<CR>
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -242,9 +246,10 @@ endfunction
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
-color zenburn
-"set background=light
-"color gruvbox
+set termguicolors
+"color zenburn
+set background=dark
+color gruvbox
 
 " you complete me options
 let g:ycm_autoclose_preview_window_after_completion=1

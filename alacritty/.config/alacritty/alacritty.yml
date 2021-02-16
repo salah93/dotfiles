@@ -106,6 +106,8 @@ key_bindings:
   - { key: B,        mods: Alt,           chars: "\x1bb"    }
   # delete forward one word
   - { key: D,        mods: Alt,           chars: "\x1bd"    }
+  # FZF_ALT_C_COMMAND
+  - { key: C,        mods: Alt,           chars: "\x1bc"    }
   # vim bindings, move in insert mode
   - { key: J,        mods: Alt,           chars: "\x1bj"    }
   - { key: K,        mods: Alt,           chars: "\x1bk"    }
