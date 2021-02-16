@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # thanks Paul Logston https://github.com/logston/comedy-cellar
 curl 'https://www.comedycellar.com/v3/reservation/api/' \
     --data-binary '{"date":"${date  +%Y-%m-%d}","init":false,"endpoint":"getShowtimes"}'

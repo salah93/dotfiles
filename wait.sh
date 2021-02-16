@@ -8,6 +8,7 @@ DIR=$1
 
 mkdir -p $OUT
 pushd $OUT
+# npm -g install browser-sync
 browser-sync start --server --files "*html" &
 popd
 

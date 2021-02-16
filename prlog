@@ -1,2 +1,4 @@
+#!/bin/bash
+
 echo "## `date +%Y%d%m-%H:%M:%S`
 $@"
