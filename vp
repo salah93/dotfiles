@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-
-vim $(find . -name "*.py" | sk -m --preview "bat --color=always --line-range :500 --terminal-width 80 --theme=TwoDark {+} --italic-text=always --decorations=always")

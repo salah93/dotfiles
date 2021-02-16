@@ -1,1 +1,0 @@
-gpg -e -r salahs.email@pm.me -r sahmed@resy.com $1

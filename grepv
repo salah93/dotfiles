@@ -1,1 +1,0 @@
-grep- -l $@ | xargs bash -c '</dev/tty vim -O $@' ignoreme

@@ -1,6 +1,0 @@
-find . -type d -name '.git' | while read dir ; do 
-                                sh -c "cd $dir/../ && \
-                                echo -e \"\n${dir//\.git/}\" && \
-                                git status -uno" ; 
-                               done | \
-        grep -B 2 "Your branch is behind 'origin/master' by \d\+ commits\?, and can be fast-forwarded"
