@@ -243,6 +243,8 @@ nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
 color zenburn
+"set background=light
+"color gruvbox
 
 " you complete me options
 let g:ycm_autoclose_preview_window_after_completion=1
