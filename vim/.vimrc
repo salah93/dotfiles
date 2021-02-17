@@ -45,7 +45,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
         \}
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'will133/vim-dirdiff'
-Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
 Plugin 'jnurmine/Zenburn'
