@@ -58,3 +58,5 @@ command -v direnv > /dev/null 2>&1; and eval (direnv hook fish)
 set -x FZF_DEFAULT_COMMAND 'fd --type file --color=always'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_DEFAULT_OPTS '--ansi'
+
+set -x PYTHONSTARTUP $HOME/.config/python/shell_startup.py
