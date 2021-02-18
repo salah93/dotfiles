@@ -15,6 +15,8 @@
     lg     = log -p --pretty=fuller --abbrev-commit
     lgg    = log --pretty=fuller --abbrev-commit --stat
     up     = pull --rebase
+    ls     = for-each-ref --sort=committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' refs/heads
+
 [includeIf "gitdir:~/src/resy/"]
   path = .gitconfig-work
 [includeIf "gitdir:~/src/crosscompute/"]
