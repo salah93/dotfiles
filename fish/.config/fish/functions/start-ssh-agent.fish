@@ -2,6 +2,7 @@
 # include the line X-GNOME-Autostart-enabled=false
 # then restart for it to take effect
 function start-ssh-agent
+    set -gx DISPLAY :0
     eval (ssh-agent -t 1800 -c)
     echo set -gx SSH_AUTH_SOCK $SSH_AUTH_SOCK > $SSH_ENV
     echo set -gx SSH_AGENT_PID $SSH_AGENT_PID >> $SSH_ENV
