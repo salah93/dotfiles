@@ -17,3 +17,7 @@ export PATH=$HOME/.scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export GPG_TTY=$(tty)
 source "$HOME/.cargo/env"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/salah/.local/share/coursier/bin"
+# <<< coursier install directory <<<
