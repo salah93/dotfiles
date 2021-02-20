@@ -8,7 +8,7 @@ if test -z $SSH_ENV
     set -xg SSH_ENV $HOME/.ssh/environment
 end
 
-pgrep -fq "ssh-agent -t 1800 -c"
+pgrep -f "ssh-agent -t 1800 -c" > /dev/null 2>&1
 set -l ssh_agent_is_running $status
 
 if test -f $SSH_ENV
