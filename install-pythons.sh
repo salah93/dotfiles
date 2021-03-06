@@ -6,7 +6,7 @@ set -xeuo pipefail
 
 
 INSTALL_DIR=$HOME/python
-VERSIONS=("3.6.10" "3.5.9")
+VERSIONS=("3.5.10" "3.8.7" "3.9.2")
 
 # for openssl (see end of output of `brew upgrade openssl`)
 # for sqlite  (see end of output of `brew upgrade sqlite`)
