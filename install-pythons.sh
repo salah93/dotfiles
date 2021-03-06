@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -xeuo pipefail
 
 # thanks to Kevin Schumacher
 # https://gist.github.com/kevinschumacher/192624d795f4ca54e4b265d194a2249f#file-02-install-pythons-sh
