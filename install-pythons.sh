@@ -48,9 +48,10 @@ do
 done
 
 # If you don't want to override the links of /usr/local/bin/python3.*, then, remove the rest of the script:
-for version in "${VERSIONS[@]}"
-do
-  short_version="$(short $version)"
-  prefix="$INSTALL_DIR/$version"
-  sudo ln -sf $prefix/bin/python$short_version $HOME/.local/bin/python$short_version
-done
+#mkdir -p ~/.local/bin
+#for version in "${VERSIONS[@]}"
+#do
+#  short_version="$(short $version)"
+#  prefix="$INSTALL_DIR/$version"
+#  sudo ln -sf $prefix/bin/python$short_version $HOME/.local/bin/python$short_version
+#done
