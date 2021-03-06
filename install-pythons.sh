@@ -37,7 +37,7 @@ do
   tar -xzf ./Python-$version.tgz
   cd ./Python-$version
 
-  make clean
+  make clean || echo no rule to make clean
   
   ./configure --prefix=$prefix --enable-optimizations --with-ensurepip=install --enable-loadable-sqlite-extensions
 
