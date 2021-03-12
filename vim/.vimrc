@@ -12,6 +12,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'dag/vim-fish'
+Plugin 'simnalamburt/vim-mundo'
 Plugin 'w0rp/ale'
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
@@ -283,3 +284,9 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+" save undo trees in files
+set undofile
+set undodir=~/.vim/undo
+" number of undo saved
+set undolevels=1000
