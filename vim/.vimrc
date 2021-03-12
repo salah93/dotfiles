@@ -49,6 +49,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'morhetz/gruvbox'
 Plugin 'jnurmine/Zenburn'
 
+Plugin 'aklt/plantuml-syntax'
+Plugin 'scrooloose/vim-slumlord'
+
 call vundle#end()
 filetype plugin indent on
 
