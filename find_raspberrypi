@@ -1,0 +1,4 @@
+#!/bin/bash
+set -xeuo pipefail
+
+sudo nmap -p 22 192.168.1.0/24 | grep "report for raspberrypi" | cut -d' ' -f 6

@@ -1,14 +1,16 @@
 #!/bin/bash
-set -eu
+set -xeuo pipefail
 
 # thanks to Kevin Schumacher
 # https://gist.github.com/kevinschumacher/192624d795f4ca54e4b265d194a2249f#file-02-install-pythons-sh
 
 
 INSTALL_DIR=$HOME/python
-VERSIONS=("3.6.10" "3.5.9")
+VERSIONS=("3.5.10" "3.6.10" "3.7.9" "3.8.7" "3.9.2")
 
 # for openssl (see end of output of `brew upgrade openssl`)
+# for INCLUDE where are the header files? 
+# for LIB where are the lib_*.so files?
 # for sqlite  (see end of output of `brew upgrade sqlite`)
 # make sure these values match your machine
 #SQLITE_LIB=/usr/lib64
@@ -37,7 +39,7 @@ do
   tar -xzf ./Python-$version.tgz
   cd ./Python-$version
 
-  make clean
+  make clean || echo no rule to make clean
   
   ./configure --prefix=$prefix --enable-optimizations --with-ensurepip=install --enable-loadable-sqlite-extensions
 
@@ -46,9 +48,10 @@ do
 done
 
 # If you don't want to override the links of /usr/local/bin/python3.*, then, remove the rest of the script:
-for version in "${VERSIONS[@]}"
-do
-  short_version="$(short $version)"
-  prefix="$INSTALL_DIR/$version"
-  sudo ln -sf $prefix/bin/python$short_version $HOME/.local/bin/python$short_version
-done
+#mkdir -p ~/.local/bin
+#for version in "${VERSIONS[@]}"
+#do
+#  short_version="$(short $version)"
+#  prefix="$INSTALL_DIR/$version"
+#  sudo ln -sf $prefix/bin/python$short_version $HOME/.local/bin/python$short_version
+#done
