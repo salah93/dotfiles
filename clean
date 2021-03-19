@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find '.' -name '*.pyc' -o -name '*.pyo' -o -name '__pycache__' -o -name '.cache' \
+    -o -name 'build' -o -name 'dist' -o -name '*.egg*' -o -name '.coverage' -o -name '.ipynb_checkpoints' \
+    -o -name '.swp' -o -name '.swo' -o -name "dump.rdb" -print0 | xargs -0 -I{} rm -rf {}
