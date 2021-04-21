@@ -20,6 +20,10 @@ function parse_tf_workspace
     end
 end
 
+function cdr
+    cd (git rev-parse --show-toplevel)
+end
+
 function find_git_dirty
   set -l _git_status (git status --untracked=no --porcelain 2> /dev/null)
   if test "$_git_status" != ""

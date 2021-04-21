@@ -61,6 +61,7 @@ alias ct='/usr/local/bin/ctags -R --fields=+l --languages=python --python-kinds=
 alias gt='git commit --allow-empty -m  "trigger"'
 alias gs='git status'
 alias gd='git diff'
+alias cdr='cd $(git rev-parse --show-toplevel)'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
