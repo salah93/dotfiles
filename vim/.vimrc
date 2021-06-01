@@ -13,6 +13,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'dag/vim-fish'
 Plugin 'simnalamburt/vim-mundo'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
 Plugin 'w0rp/ale'
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
@@ -75,6 +77,11 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rst set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
+
+" ripgrep-fzf
+command! -nargs=* -bang ResyRg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '~/src/resy'}), <bang>0)
+command! -nargs=* -bang Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
 " Define hierarchical folds for goals
 autocmd BufRead,BufNewFile *.goals set filetype=goals
 autocmd! FileType goals setlocal smartindent foldmethod=expr foldexpr=(getline(v:lnum)=~'^$')?'=':((indent(v:lnum)<indent(v:lnum+1))?'>'.(indent(v:lnum+1)/&l:shiftwidth):indent(v:lnum)/&l:shiftwidth) foldtext=getline(v:foldstart) fillchars=fold:\ "
@@ -125,6 +132,10 @@ set history=500
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
 let g:mapleader = ","
+
+" Remap ripgrep
+nnoremap <Leader>. <esc>:ResyRg
+nnoremap <Leader>, <esc>:Rg
 
 " Remap tab movement keys
 map <Leader>[ <esc>:tabprevious<CR>
