@@ -262,7 +262,7 @@ nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
 set termguicolors
 "color zenburn
-set background=dark
+set background=light
 color gruvbox
 
 " you complete me options
