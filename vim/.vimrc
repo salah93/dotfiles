@@ -70,6 +70,8 @@ autocmd! FileType html,xhtml,sass,scss,css,javascript,json,yaml setlocal tabstop
 autocmd! FileType ghmarkdown,nginx setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType python let &colorcolumn=join(range(81,999),",")
 autocmd! FileType python let &colorcolumn="90,".join(range(400,999),",")
+autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal complete+=kspell
 
 
 " vim_markdown
