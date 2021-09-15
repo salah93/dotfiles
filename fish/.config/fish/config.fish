@@ -34,7 +34,12 @@ function find_git_dirty
 end
 
 function v
-    source ~/.virtualenvs/env/bin/activate.fish
+    set -l ENV (/usr/bin/basename (/bin/pwd))
+    if test -d ~/.virtualenvs/$ENV
+        source ~/.virtualenvs/$ENV/bin/activate.fish
+    else
+        source ~/.virtualenvs/env/bin/activate.fish
+    end
 end
 
 function whatis
