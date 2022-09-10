@@ -69,7 +69,7 @@ schemes:
       text:   '0xf1c1c1'
       cursor: '0xff2600'
 
-colors: *light
+colors: *dark
 
 hide_cursor_when_typing: true
 
