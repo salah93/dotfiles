@@ -76,30 +76,30 @@ hide_cursor_when_typing: true
 key_bindings:
   # tmux
   ## split panes
-  - { key: D,        mods: Command,       chars: "\x01\x76" }
-  - { key: D,        mods: Command|Shift, chars: "\x01\x73" }
+  - { key: D,        mods: Command,       chars: "\x02\x76" }
+  - { key: D,        mods: Command|Shift, chars: "\x02\x73" }
   ## close pane
-  - { key: W,        mods: Command,       chars: "\x01\x78" }
+  - { key: W,        mods: Command,       chars: "\x02\x78" }
   ## create a new window
-  - { key: T,        mods: Command,       chars: "\x01\x63" }
+  - { key: T,        mods: Command,       chars: "\x02\x63" }
   ## jump to window index i
-  - { key: Key0,     mods: Command,       chars: "\x01\x30" }
-  - { key: Key1,     mods: Command,       chars: "\x01\x31" }
-  - { key: Key2,     mods: Command,       chars: "\x01\x32" }
-  - { key: Key3,     mods: Command,       chars: "\x01\x33" }
-  - { key: Key4,     mods: Command,       chars: "\x01\x34" }
-  - { key: Key5,     mods: Command,       chars: "\x01\x35" }
-  - { key: Key6,     mods: Command,       chars: "\x01\x36" }
-  - { key: Key7,     mods: Command,       chars: "\x01\x37" }
-  - { key: Key8,     mods: Command,       chars: "\x01\x38" }
-  - { key: Key9,     mods: Command,       chars: "\x01\x39" }
+  - { key: Key0,     mods: Command,       chars: "\x02\x30" }
+  - { key: Key1,     mods: Command,       chars: "\x02\x31" }
+  - { key: Key2,     mods: Command,       chars: "\x02\x32" }
+  - { key: Key3,     mods: Command,       chars: "\x02\x33" }
+  - { key: Key4,     mods: Command,       chars: "\x02\x34" }
+  - { key: Key5,     mods: Command,       chars: "\x02\x35" }
+  - { key: Key6,     mods: Command,       chars: "\x02\x36" }
+  - { key: Key7,     mods: Command,       chars: "\x02\x37" }
+  - { key: Key8,     mods: Command,       chars: "\x02\x38" }
+  - { key: Key9,     mods: Command,       chars: "\x02\x39" }
   ## resize panes
-  - { key: Left,     mods: Control|Shift, chars: "\x01\x48" }
-  - { key: Down,     mods: Control|Shift, chars: "\x01\x4a" }
-  - { key: Up,       mods: Control|Shift, chars: "\x01\x4b" }
-  - { key: Right,    mods: Control|Shift, chars: "\x01\x4c" }
+  - { key: Left,     mods: Control|Shift, chars: "\x02\x48" }
+  - { key: Down,     mods: Control|Shift, chars: "\x02\x4a" }
+  - { key: Up,       mods: Control|Shift, chars: "\x02\x4b" }
+  - { key: Right,    mods: Control|Shift, chars: "\x02\x4c" }
   ## zoom
-  - { key: Return,   mods: Command|Shift, chars: "\x01\x7a" }
+  - { key: Return,   mods: Command|Shift, chars: "\x02\x7a" }
   # move forward one word
   - { key: F,        mods: Alt,           chars: "\x1bf"    }
   # move backwards one word
