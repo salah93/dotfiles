@@ -63,6 +63,7 @@ syntax on
 " Customize file handling
 autocmd BufRead,BufNewFile *.md set filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.json set filetype=json
+autocmd BufRead,BufNewFile *.svelte set filetype=javascript
 autocmd BufRead,BufNewFile *.py_tmpl set filetype=python
 au BufNewFile,BufFilePre,BufRead *.sc set filetype=scala
 autocmd BufRead,BufNewFile *.mako,*.mako_tmpl,*.jinja2 set filetype=html
