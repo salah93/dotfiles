@@ -53,7 +53,8 @@ end
 bind -k up history-search-backward
 
 # pyenv
-command -v pyenv > /dev/null 2>&1; and pyenv init - | source
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
 #
 #
 ## direnv
