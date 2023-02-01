@@ -128,7 +128,7 @@ nnoremap <C-L> <C-W><C-L>
 "inoremap -- <C-K>-M
 
 " map timestamp
-nnoremap TS <esc>:r !ds<cr> ^i
+nnoremap TS <esc>:r !date<cr> ^i
 
 set history=500
 
