@@ -21,12 +21,13 @@ Plugin 'w0rp/ale'
     let g:ale_lint_on_save = 1
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
-    \ 'python': ['black'],
+    \ 'python': ['black', 'isort'],
     \ 'go': ['gofmt'],
 	\ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ }
     let g:ale_linters = {
     \ 'python':  ['flake8'],
+    \ 'bash': ['shellcheck'],
     \ 'go':  ['golint', 'errcheck', 'deadcode', 'go vet'],
     \ }
 Plugin 'bling/vim-airline'
