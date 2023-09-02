@@ -5,7 +5,7 @@ else if type -q ssh-askpass
 end
 
 if test -z $SSH_ENV
-    set -xg SSH_ENV $HOME/.ssh/environment
+    set -x SSH_ENV $HOME/.ssh/environment
 end
 
 pgrep -f "ssh-agent -t 1800 -c" > /dev/null 2>&1
