@@ -69,3 +69,7 @@ set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_DEFAULT_OPTS '--ansi'
 
 set -x PYTHONSTARTUP $HOME/.config/python/shell_startup.py
+
+if type -q op
+    op completion fish | source
+end
