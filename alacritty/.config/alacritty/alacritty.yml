@@ -70,6 +70,8 @@ schemes:
       cursor: '0xff2600'
 
 colors: *dark
+#import:
+#  - ~/.config/alacritty/dracula.yml
 
 hide_cursor_when_typing: true
 
@@ -100,6 +102,8 @@ key_bindings:
   - { key: Right,    mods: Control|Shift, chars: "\x02\x4c" }
   ## zoom
   - { key: Return,   mods: Command|Shift, chars: "\x02\x7a" }
+  # fish command line editor
+  - { key: E,        mods: Alt,           chars: "\x1be"    }
   # move forward one word
   - { key: F,        mods: Alt,           chars: "\x1bf"    }
   # move backwards one word
