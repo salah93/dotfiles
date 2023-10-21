@@ -1,6 +1,7 @@
 [user]
 	name   = salah ahmed
 	email  = salahs.email@pm.me
+	signingkey = DCD5F589AA4977AC
 [core]
 	editor = vim
 [alias]
