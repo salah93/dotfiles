@@ -2,6 +2,8 @@
 	name   = salah ahmed
 	email  = salahs.email@pm.me
 	signingkey = DCD5F589AA4977AC
+[commit]
+    gpgsign = true
 [core]
 	editor = vim
 [alias]
