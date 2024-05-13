@@ -1,0 +1,208 @@
+custom_cursor_colors = true
+hide_cursor_when_typing = true
+
+[colors.cursor]
+cursor = "0xff2600"
+text = "0xf1c1c1"
+
+[colors.primary]
+background = "0x191919"
+foreground = "0xeaeaea"
+
+[font.bold]
+family = "SF Mono"
+style = "Bold"
+
+[font.italic]
+family = "SF Mono"
+style = "Italic"
+
+[font.normal]
+family = "SF Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u0002v"
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002s"
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00020"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002H"
+key = "Left"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002J"
+key = "Down"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002K"
+key = "Up"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002L"
+key = "Right"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002z"
+key = "Return"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Be"
+key = "E"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bc"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[schemes.solarized_dark.cursor]
+cursor = "0xff2600"
+text = "0xf1c1c1"
+
+[schemes.solarized_dark.primary]
+background = "0x191919"
+foreground = "0xeaeaea"
+
+[schemes.solarized_light.bright]
+black = "#5e5c64"
+blue = "#2a7bde"
+cyan = "#33c7de"
+green = "#33d17a"
+magenta = "#c061cb"
+red = "#f66151"
+white = "#ffffff"
+yellow = "#e9ad0c"
+
+[schemes.solarized_light.normal]
+black = "#171421"
+blue = "#12488b"
+cyan = "#2aa1b3"
+green = "#26a269"
+magenta = "#a347ba"
+red = "#c01c28"
+white = "#d0cfcc"
+yellow = "#a2734c"
+
+[schemes.solarized_light.primary]
+background = "#ffffff"
+bright_foreground = "#5e5c64"
+foreground = "#171421"
+
+[shell]
+args = ["--login"]
+program = "/usr/local/bin/fish"
+
+[window.dimensions]
+columns = 180
+lines = 40
