@@ -9,7 +9,15 @@ set -x TERM xterm-256color
 set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin
 
 function parse_git_branch
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    set branch (git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    set tag (git describe --tags --exact-match 2> /dev/null)
+    if test -z "$branch"
+        echo ""
+    else if test -n "$tag"
+        echo "($branch - $tag)"
+    else
+        echo "($branch)"
+    end
 end
 
 function parse_tf_workspace
