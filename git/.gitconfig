@@ -25,3 +25,5 @@
   path = .gitconfig-work
 [includeIf "gitdir:~/src/crosscompute/"]
   path = .gitconfig-crosscompute
+[init]
+	defaultBranch = main
