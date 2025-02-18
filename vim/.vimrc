@@ -31,14 +31,14 @@ Plugin 'w0rp/ale'
     \ 'go':  ['golint', 'errcheck', 'deadcode', 'go vet'],
     \ }
 Plugin 'bling/vim-airline'
-Plugin 'davidhalter/jedi-vim'
-    let g:jedi#popup_on_dot = 0
-    let g:jedi#show_call_signatures = 0
-    let g:jedi#smart_auto_mappings = 0
+
 Plugin 'fatih/vim-go'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Raimondi/delimitMate'
-Plugin 'ycm-core/YouCompleteMe'
+
+if !has('nvim')
+    Plugin 'ycm-core/YouCompleteMe'
+endif
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
     set wildignore+=*.pyc
@@ -55,6 +55,10 @@ Plugin 'jnurmine/Zenburn'
 
 Plugin 'aklt/plantuml-syntax'
 Plugin 'scrooloose/vim-slumlord'
+
+if !has('nvim')
+    Plugin 'gergap/vim-ollama'
+endif
 
 call vundle#end()
 filetype plugin indent on
@@ -257,8 +261,10 @@ set background=light
 color gruvbox
 
 " you complete me options
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if !has('nvim')
+    let g:ycm_autoclose_preview_window_after_completion=1
+    map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 let g:ansible_options = {'documentation_mapping': '<C-K>'}
 

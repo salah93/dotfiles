@@ -6,7 +6,8 @@ set -x GPG_TTY (tty)
 set -x LSCOLORS 'gxfxcxdxbxegedabagacad'
 set -x TERM xterm-256color
 ## PATH
-set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin $PYENV_ROOT/bin
 
 function parse_git_branch
     set branch (git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -66,6 +67,7 @@ fish_add_path $PYENV_ROOT/bin
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
+    status --is-interactive; and pyenv virtualenv-init - | source
 end
 #
 #
@@ -91,3 +93,5 @@ if type -q op
 end
 
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+set -x POETRY_VIRTUALENVS_PATH $HOME/.virtualenvs
+set -x POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true

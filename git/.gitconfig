@@ -27,3 +27,7 @@
 	rebase = true
 [diff]
 	tool = vimdiff
+[includeIf "gitdir:~/src/crosscompute/"]
+  path = .gitconfig-crosscompute
+[init]
+	defaultBranch = main
