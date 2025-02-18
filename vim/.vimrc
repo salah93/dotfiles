@@ -35,7 +35,10 @@ Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Raimondi/delimitMate'
-Plugin 'ycm-core/YouCompleteMe'
+
+if !has('nvim')
+    Plugin 'ycm-core/YouCompleteMe'
+endif
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
     set wildignore+=*.pyc
@@ -267,8 +270,10 @@ set background=light
 color gruvbox
 
 " you complete me options
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if !has('nvim')
+    let g:ycm_autoclose_preview_window_after_completion=1
+    map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 let g:ansible_options = {'documentation_mapping': '<C-K>'}
 
