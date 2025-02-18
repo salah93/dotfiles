@@ -78,10 +78,15 @@ command -v direnv > /dev/null 2>&1; and eval (direnv hook fish)
 #
 set -x FZF_DEFAULT_COMMAND 'fd --type file --color=always'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+set -x FZF_CTRL_R_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_DEFAULT_OPTS '--ansi'
 
-set -x PYTHONSTARTUP $HOME/.config/python/shell_startup.py
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x PYTHONSTARTUP $XDG_CONFIG_HOME/python/shell_startup.py
+set -x POETRY_CONFIG_DIR $XDG_CONFIG_HOME/pypoetry
 
 if type -q op
     op completion fish | source
 end
+
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
