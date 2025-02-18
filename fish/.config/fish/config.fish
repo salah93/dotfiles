@@ -78,3 +78,6 @@ set -x PYTHONSTARTUP $HOME/.config/python/shell_startup.py
 if type -q op
     op completion fish | source
 end
+
+set -x POETRY_VIRTUALENVS_PATH $HOME/.virtualenvs
+set -x POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
