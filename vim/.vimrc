@@ -82,10 +82,6 @@ au BufNewFile,BufFilePre,BufRead *.rst set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
 
-" ripgrep-fzf
-command! -nargs=* -bang ResyRg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '~/src/resy'}), <bang>0)
-command! -nargs=* -bang Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
 " Define hierarchical folds for goals
 autocmd BufRead,BufNewFile *.goals set filetype=goals
 autocmd! FileType goals setlocal smartindent foldmethod=expr foldexpr=(getline(v:lnum)=~'^$')?'=':((indent(v:lnum)<indent(v:lnum+1))?'>'.(indent(v:lnum+1)/&l:shiftwidth):indent(v:lnum)/&l:shiftwidth) foldtext=getline(v:foldstart) fillchars=fold:\ "
@@ -146,15 +142,6 @@ map <Leader>[ <esc>:tabprevious<CR>
 map <Leader>] <esc>:tabnext<CR>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-
-" Prompt for a command to run
-map <leader>vp :VimuxPromptCommand<CR>
-" Run last command executed by VimuxRunCommand
-map <leader>vl :VimuxRunLastCommand<CR>
-" Inspect runner pane
-map <leader>vi :VimuxInspectRunner<CR>
-" Zoom the tmux runner pane
-map <leader>vz :VimuxZoomRunner<CR>
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
