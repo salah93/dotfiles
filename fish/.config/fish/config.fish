@@ -6,7 +6,8 @@ set -x GPG_TTY (tty)
 set -x LSCOLORS 'gxfxcxdxbxegedabagacad'
 set -x TERM xterm-256color
 ## PATH
-set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin $PYENV_ROOT/bin
 
 function parse_git_branch
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -56,6 +57,7 @@ bind -k up history-search-backward
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
+    status --is-interactive; and pyenv virtualenv-init - | source
 end
 #
 #
