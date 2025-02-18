@@ -56,6 +56,10 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'scrooloose/vim-slumlord'
 
+if !has('nvim')
+    Plugin 'gergap/vim-ollama'
+endif
+
 call vundle#end()
 filetype plugin indent on
 
