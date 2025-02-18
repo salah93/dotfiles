@@ -1,25 +1,16 @@
-custom_cursor_colors = true
-hide_cursor_when_typing = true
-
 [colors.cursor]
 cursor = "0xff2600"
 text = "0xf1c1c1"
 
 [colors.primary]
-background = "0x191919"
-foreground = "0xeaeaea"
-
-[font.bold]
-family = "SF Mono"
-style = "Bold"
-
-[font.italic]
-family = "SF Mono"
-style = "Italic"
+#background = "0x191919"
+#foreground = "0xeaeaea"
+background = "#ffffff"
+bright_foreground = "#5e5c64"
+foreground = "#171421"
 
 [font.normal]
 family = "SF Mono"
-style = "Regular"
 
 [[keyboard.bindings]]
 chars = "\u0002v"
@@ -166,38 +157,38 @@ chars = "\u001E"
 key = "Key6"
 mods = "Control"
 
-[schemes.solarized_dark.cursor]
-cursor = "0xff2600"
-text = "0xf1c1c1"
-
-[schemes.solarized_dark.primary]
-background = "0x191919"
-foreground = "0xeaeaea"
-
-[schemes.solarized_light.bright]
-black = "#5e5c64"
-blue = "#2a7bde"
-cyan = "#33c7de"
-green = "#33d17a"
-magenta = "#c061cb"
-red = "#f66151"
-white = "#ffffff"
-yellow = "#e9ad0c"
-
-[schemes.solarized_light.normal]
-black = "#171421"
-blue = "#12488b"
-cyan = "#2aa1b3"
-green = "#26a269"
-magenta = "#a347ba"
-red = "#c01c28"
-white = "#d0cfcc"
-yellow = "#a2734c"
-
-[schemes.solarized_light.primary]
-background = "#ffffff"
-bright_foreground = "#5e5c64"
-foreground = "#171421"
+#[schemes.solarized_dark.cursor]
+#cursor = "0xff2600"
+#text = "0xf1c1c1"
+#
+#[schemes.solarized_dark.primary]
+#background = "0x191919"
+#foreground = "0xeaeaea"
+#
+#[schemes.solarized_light.bright]
+#black = "#5e5c64"
+#blue = "#2a7bde"
+#cyan = "#33c7de"
+#green = "#33d17a"
+#magenta = "#c061cb"
+#red = "#f66151"
+#white = "#ffffff"
+#yellow = "#e9ad0c"
+#
+#[schemes.solarized_light.normal]
+#black = "#171421"
+#blue = "#12488b"
+#cyan = "#2aa1b3"
+#green = "#26a269"
+#magenta = "#a347ba"
+#red = "#c01c28"
+#white = "#d0cfcc"
+#yellow = "#a2734c"
+#
+#[schemes.solarized_light.primary]
+#background = "#ffffff"
+#bright_foreground = "#5e5c64"
+#foreground = "#171421"
 
 [shell]
 args = ["--login"]
