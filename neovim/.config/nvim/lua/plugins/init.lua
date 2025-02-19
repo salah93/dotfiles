@@ -1,1 +1,26 @@
-return {}
+return {
+    "tpope/vim-surround",
+    "tpope/vim-fugitive",
+    "ruanyl/vim-gh-line",
+    "plasticboy/vim-markdown",
+    "godlygeek/tabular",
+    "valloric/MatchTagAlways",
+    "dag/vim-fish",
+    "simnalamburt/vim-mundo",
+    "junegunn/fzf.vim",
+    "junegunn/fzf",
+    "bling/vim-airline",
+    "fatih/vim-go",
+    "tmhedberg/SimpylFold",
+    "Raimondi/delimitMate",
+    "majutsushi/tagbar",
+    "chase/vim-ansible-yaml",
+    "will133/vim-dirdiff",
+    "christoomey/vim-tmux-navigator",
+    "morhetz/gruvbox",
+    "jnurmine/Zenburn",
+    "aklt/plantuml-syntax",
+    "scrooloose/vim-slumlord",
+    "ctrlpvim/ctrlp.vim",
+    "w0rp/ale"
+}

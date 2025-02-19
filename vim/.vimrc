@@ -16,20 +16,6 @@ Plugin 'simnalamburt/vim-mundo'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'w0rp/ale'
-    let g:ale_lint_on_text_changed = 0
-    let g:ale_lint_on_enter = 0
-    let g:ale_lint_on_save = 1
-    let g:ale_fix_on_save = 1
-    let g:ale_fixers = {
-    \ 'python': ['black', 'isort'],
-    \ 'go': ['gofmt'],
-	\ '*': ['trim_whitespace', 'remove_trailing_lines'],
-    \ }
-    let g:ale_linters = {
-    \ 'python':  ['flake8'],
-    \ 'bash': ['shellcheck'],
-    \ 'go':  ['golint', 'errcheck', 'deadcode', 'go vet'],
-    \ }
 Plugin 'bling/vim-airline'
 
 Plugin 'fatih/vim-go'
@@ -39,14 +25,10 @@ Plugin 'Raimondi/delimitMate'
 if !has('nvim')
     Plugin 'ycm-core/YouCompleteMe'
 endif
+
 Plugin 'majutsushi/tagbar'
+
 Plugin 'ctrlpvim/ctrlp.vim'
-    set wildignore+=*.pyc
-    set wildignore+=*.egg-info
-    set wildignore+=*.zip
-    let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](node_modules|\.git|__pycache__)$',
-        \}
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'will133/vim-dirdiff'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -85,6 +67,24 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rst set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](node_modules|\.git|__pycache__)$',
+    \}
+
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+    \ 'python': ['black', 'isort'],
+    \ 'go': ['gofmt'],
+    \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+    \ }
+let g:ale_linters = {
+    \ 'python':  ['flake8'],
+    \ 'bash': ['shellcheck'],
+    \ 'go':  ['golint', 'errcheck', 'deadcode', 'go vet'],
+    \ }
 
 " Define hierarchical folds for goals
 autocmd BufRead,BufNewFile *.goals set filetype=goals
