@@ -56,7 +56,6 @@ au BufNewFile,BufFilePre,BufRead *.sc set filetype=scala
 autocmd BufRead,BufNewFile *.mako,*.mako_tmpl,*.jinja2 set filetype=html
 autocmd! FileType html,xhtml,sass,scss,css,javascript,json,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd! FileType ghmarkdown,nginx setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd! FileType python let &colorcolumn=join(range(81,999),",")
 autocmd! FileType python let &colorcolumn="90,".join(range(400,999),",")
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit setlocal complete+=kspell
