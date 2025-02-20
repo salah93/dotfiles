@@ -95,3 +95,4 @@ end
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 set -x POETRY_VIRTUALENVS_PATH $HOME/.virtualenvs
 set -x POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
+alias vim nvim
