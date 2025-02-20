@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 
-java -jar ~/.local/share/plantuml/plantuml.jar $@
+java -jar ~/.local/share/nvim/lazy/vim-slumlord/plantuml.jar $@
