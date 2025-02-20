@@ -135,10 +135,6 @@ set history=500
 let mapleader = ","
 let g:mapleader = ","
 
-" Remap ripgrep
-nnoremap <Leader>. <esc>:ResyRg
-nnoremap <Leader>, <esc>:Rg
-
 " Remap tab movement keys
 map <Leader>[ <esc>:tabprevious<CR>
 map <Leader>] <esc>:tabnext<CR>
