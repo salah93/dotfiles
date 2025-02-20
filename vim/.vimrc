@@ -116,7 +116,6 @@ highlight nonascii guibg=Red ctermbg=2
 highlight Search term=reverse ctermbg=yellow ctermfg=black guibg=Yellow
 hi QuickFixLine ctermfg=blue
 hi MatchParen cterm=none ctermbg=blue ctermfg=white
-hi SyntasticError ctermbg=red
 
 " get search count
 map ,* *<C-O>:%s///gn<CR>
