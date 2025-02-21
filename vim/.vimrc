@@ -132,13 +132,12 @@ nnoremap TS <esc>:r !date<cr> ^i
 set history=500
 
 " With a map leader it's possible to do extra key combinations
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = " "
 
 " Remap tab movement keys
-map <Leader>[ <esc>:tabprevious<CR>
-map <Leader>] <esc>:tabnext<CR>
-map <leader>l :bnext<cr>
+map <leader>[ <esc>:tabprevious<CR>
+map <leader>] <esc>:tabnext<CR>
+map <leader>k :bnext<cr>
 map <leader>h :bprevious<cr>
 
 " Disable tmux navigator when zooming the Vim pane
@@ -164,11 +163,6 @@ set wildignore=*.o,*~,*.pyc
 set magic
 " Show matching brackets when text indicator is over them
 set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" Add a bit extra margin to the left
-set foldcolumn=0
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -201,9 +195,10 @@ function! CmdLine(str)
 endfunction
 
 
-nnoremap <space>l :lnext<CR>
-nnoremap <space>p :lprevious<CR>
-nnoremap <space>r :lrewind<CR>
+" local-list
+nnoremap <leader>l :lnext<CR>
+nnoremap <leader>p :lprevious<CR>
+nnoremap <leader>r :lrewind<CR>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader>c :noh<cr>
@@ -211,47 +206,8 @@ map <silent> <leader>c :noh<cr>
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
-
-function! MarkWindowSwap()
-    let g:markedWinNum = winnr()
-endfunction
-
-function! DoWindowSwap()
-    "Mark destination
-    let curNum = winnr()
-    let curBuf = bufnr( "%" )
-    exe g:markedWinNum . "wincmd w"
-    "Switch to source and shuffle dest->source
-    let markedBuf = bufnr( "%" )
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' curBuf
-    "Switch to dest and shuffle source->dest
-    exe curNum . "wincmd w"
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' markedBuf
-endfunction
-
-nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
-nmap <silent> <leader>pw :call DoWindowSwap()<CR>
-
-set termguicolors
-"color zenburn
 set background=light
+"color zenburn
 color gruvbox
 
 " you complete me options
