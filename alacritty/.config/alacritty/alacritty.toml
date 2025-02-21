@@ -3,11 +3,11 @@ cursor = "0xff2600"
 text = "0xf1c1c1"
 
 [colors.primary]
-#background = "0x191919"
-#foreground = "0xeaeaea"
-background = "#ffffff"
-bright_foreground = "#5e5c64"
-foreground = "#171421"
+background = "0x191919"
+foreground = "0xeaeaea"
+#background = "#ffffff"
+#bright_foreground = "#5e5c64"
+#foreground = "#171421"
 
 [font.normal]
 family = "SF Mono"
