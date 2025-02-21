@@ -2,3 +2,4 @@ fish/.config/fish/conf.d/secrets.fish
 fish/.config/fish/conf.d/resy.fish
 fish/.config/fish/conf.d/devops_utils.fish
 neovim/.config/nvim/plugin/after/work.lua
+neovim/.config/nvim/lazy-lock.json
