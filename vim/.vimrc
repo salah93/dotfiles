@@ -55,6 +55,7 @@ autocmd BufRead,BufNewFile *.py_tmpl set filetype=python
 autocmd BufRead,BufNewFile *.sc set filetype=scala
 autocmd BufRead,BufNewFile *.mako,*.mako_tmpl,*.jinja2 set filetype=html
 autocmd BufRead,BufNewFile *.goals set filetype=goals
+autocmd BufRead,BufNewFile *.goals set filetype=goals
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -63,6 +64,10 @@ autocmd! FileType html,xhtml,sass,scss,css,javascript,json,yaml setlocal tabstop
 autocmd! FileType markdown,nginx setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType python let &l:colorcolumn="90,".join(range(400,999),",")
 autocmd FileType gitcommit setlocal spell complete+=kspell
+" if empty line, stay the same ('=')
+" If current indent is less than next line's indent, creates a fold start ('>') with next lines indent level
+" otherwise return current lines indent level
+autocmd! FileType goals setlocal smartindent foldmethod=expr foldexpr=(getline(v:lnum)=~'^$')?'=':((indent(v:lnum)<indent(v:lnum+1))?'>'.(indent(v:lnum+1)/&l:shiftwidth):indent(v:lnum)/&l:shiftwidth) foldtext=getline(v:foldstart) fillchars=fold:\ "
 
 " Define indent behavior
 set tabstop=4      " Convert existing tabs to 4 spaces
