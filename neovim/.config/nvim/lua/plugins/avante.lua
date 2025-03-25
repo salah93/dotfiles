@@ -18,8 +18,31 @@ return {
         end,
         init = function()
             require("nvim-treesitter.configs").setup{
+                ensure_installed = {
+                    "markdown",
+                    "markdown_inline",
+                    "python",
+                    "vim",
+                    "lua",
+                    "vimdoc",
+                    "query"
+                },
+                sync_install = false,
+                auto_install = true,
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
+                        init_selection = "gnn",     -- Start selection
+                        node_incremental = "grn",   -- Increment to next node
+                        scope_incremental = "grc",  -- Increment to scope
+                        node_decremental = "grm"    -- Decrement to previous node
+                    }
+                },
                 highlight = {
                     enable = true,
+                },
+                indent = {
+                    enable = true
                 }
             }
         end
