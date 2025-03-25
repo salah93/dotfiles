@@ -1,6 +1,9 @@
 -- Set Python3 host program
 vim.g.python3_host_prog = '~/.virtualenvs/env/bin/python3'
 
+-- Load lazy.nvim configuration
+require("config.lazy")
+
 -- Disable mouse
 vim.opt.mouse = ''
 
@@ -104,7 +107,7 @@ vim.opt.wildignore = "*.o,*~,*.pyc"
 
 -- Display settings
 vim.opt.background = "light"
-vim.cmd("colorscheme gruvbox")
+vim.cmd([[colorscheme gruvbox]])
 
 -- Enable persistent undo
 vim.opt.undofile = true
@@ -220,6 +223,3 @@ vim.g.tagbar_type_go = {
 
 -- Disable tmux navigator when zooming the Vim pane
 vim.g.tmux_navigator_disable_when_zoomed = 1
-
--- Load lazy.nvim configuration
-require("config.lazy")
