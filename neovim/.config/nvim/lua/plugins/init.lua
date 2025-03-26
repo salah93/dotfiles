@@ -17,7 +17,7 @@ return {
     "chase/vim-ansible-yaml",
     "will133/vim-dirdiff",
     "christoomey/vim-tmux-navigator",
-    "morhetz/gruvbox",
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
     "jnurmine/Zenburn",
     "aklt/plantuml-syntax",
     "scrooloose/vim-slumlord",
