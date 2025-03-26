@@ -1,4 +1,5 @@
 return {
+    {"ellisonleao/gruvbox.nvim", priority = 1000, config = true},
     "tpope/vim-surround",
     "tpope/vim-fugitive",
     "ruanyl/vim-gh-line",
@@ -17,7 +18,6 @@ return {
     "chase/vim-ansible-yaml",
     "will133/vim-dirdiff",
     "christoomey/vim-tmux-navigator",
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
     "jnurmine/Zenburn",
     "aklt/plantuml-syntax",
     "scrooloose/vim-slumlord",
