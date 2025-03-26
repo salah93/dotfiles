@@ -12,7 +12,7 @@ vim.g.vim_markdown_folding_disabled = 1
 
 -- ctrlp
 vim.g.ctrlp_custom_ignore = {
-  dir = [[\v[\/](node_modules|\.git|__pycache__)$]],
+  dir = [[\v[\/](node_modules|\.git|__pycache__|env|.*\.egg-info)$]],
 }
 
 -- ale
