@@ -5,9 +5,6 @@ set -x GPG_TTY (tty)
 ## ls colors
 set -x LSCOLORS 'gxfxcxdxbxegedabagacad'
 set -x TERM xterm-256color
-## PATH
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/coursier/bin $PYENV_ROOT/bin
 
 function parse_git_branch
     set branch (git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -70,6 +67,7 @@ if type -q pyenv
     # slow on mac..
     #status --is-interactive; and pyenv virtualenv-init - | source
 end
+
 #
 #
 ## direnv
@@ -96,9 +94,5 @@ end
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 set -x POETRY_VIRTUALENVS_PATH $HOME/.virtualenvs
 set -x POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
-alias vim nvim
 
-# claude-code
-# mkdir $HOME/.npm-global
-# npm config set prefix ~/.npm-global
-fish_add_path $HOME/.npm-global/bin
+alias vim nvim
