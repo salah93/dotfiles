@@ -97,3 +97,8 @@ complete --command aws --no-files --arguments '(begin; set --local --export COMP
 set -x POETRY_VIRTUALENVS_PATH $HOME/.virtualenvs
 set -x POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON true
 alias vim nvim
+
+# claude-code
+# mkdir $HOME/.npm-global
+# npm config set prefix ~/.npm-global
+fish_add_path $HOME/.npm-global/bin
