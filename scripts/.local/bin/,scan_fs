@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#sudo ncdu /home/$USER
+sudo du -h --max-depth=2 /home/$USER | sort -hr | head -20
