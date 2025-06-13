@@ -18,9 +18,6 @@ return {
         --      tar -xzf jdt-language-server-latest.tar.gz --directory=jdtls
         --      rm jdt-language*tar.gz
         --      export PATH=$PATH:$HOME/.local/share/jdtls/bin
-        --
-        -- # set classpath
-        --      set -x CLASSPATH (fd --extension jar --type f -L -0  |   xargs -I{} -0 echo -n "{}:")
         callback = function()
           local current_file = vim.api.nvim_buf_get_name(0)
           local project_root = require('lspconfig.util').root_pattern('MODULE.bazel', 'WORKSPACE', '.git')(current_file)
@@ -37,6 +34,7 @@ return {
             name = 'jdtls',
             cmd = { 'jdtls' },
             root_dir = project_root,
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
             settings = {
               java = {
                 eclipse = {
