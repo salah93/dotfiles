@@ -1,44 +1,43 @@
 local config = {
     cmd = { vim.env.HOME .. "/.local/share/jdtls/bin/jdtls"},
-    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    root_dir = vim.fs.dirname(vim.fs.find({'MODULE.bazel', '.git', 'mvnw'}, { upward = true })[1]),
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
-            --settings = {
-            --  java = {
-            --    eclipse = {
-            --      downloadSources = true,
-            --    },
-            --    configuration = {
-            --      updateBuildConfiguration = "disabled",  -- Changed from "interactive"
-            --      detectProjects = false,                 -- Added to disable auto-detection
-            --    },
-            --    -- Added import settings to disable Gradle/Maven
-            --    import = {
-            --      gradle = { enabled = false },
-            --      maven = { enabled = false },
-            --    },
-            --    maven = {
-            --      downloadSources = true,
-            --    },
-            --    project = {
-            --      sourcePaths = {
-            --        "src/main/java",
-            --        "src/test/java",
-            --      },
-            --      referencedLibraries = {              -- Added back the JAR references
-            --        "bazel-*/**/*.jar",
-            --      }
-            --    },
-            --    completion = {
-            --      importOrder = {
-            --        "java",
-            --        "javax",
-            --        "com",
-            --        "org"
-            --      }
-            --    }
-            --  }
-            --},
-
+    settings = {
+        java = {
+        --eclipse = {
+        --  downloadSources = true,
+        --},
+        --configuration = {
+        --  updateBuildConfiguration = "disabled",  -- Changed from "interactive"
+        --  detectProjects = false,                 -- Added to disable auto-detection
+        --},
+        ---- Added import settings to disable Gradle/Maven
+        --import = {
+        --  gradle = { enabled = false },
+        --  maven = { enabled = false },
+        --},
+        --maven = {
+        --  downloadSources = true,
+        --},
+        project = {
+            sourcePaths = {
+            "src/main/java",
+            "src/test/java",
+            },
+            referencedLibraries = {              -- Added back the JAR references
+            "bazel-*/**/*.jar",
+            }
+        },
+        completion = {
+            importOrder = {
+            "java",
+            "javax",
+            "com",
+            "org"
+            }
+        }
+        }
+    },
     on_attach = function(client, buffer)
         print("✅ JDTLS attached manually")
 
