@@ -15,8 +15,9 @@ return {
         -- # install jdts
         --      cd ~/.local/share
         --      wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
-        --      tar -xzf jdt-language-server-latest.tar.gz
-        --      mv jdt-language-server-* jdtls
+        --      tar -xzf jdt-language-server-latest.tar.gz --directory=jdtls
+        --      rm jdt-language*tar.gz
+        --      export PATH=$PATH:$HOME/.local/share/jdtls/bin
         --
         -- # set classpath
         --      set -x CLASSPATH (fd --extension jar --type f -L -0  |   xargs -I{} -0 echo -n "{}:")
