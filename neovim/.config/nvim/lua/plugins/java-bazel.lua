@@ -12,6 +12,14 @@ return {
       -- Only set up jdtls for Java files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
+        -- # install jdts
+        --      cd ~/.local/share
+        --      wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
+        --      tar -xzf jdt-language-server-latest.tar.gz
+        --      mv jdt-language-server-* jdtls
+        --
+        -- # set classpath
+        --      set -x CLASSPATH (fd --extension jar --type f -L -0  |   xargs -I{} -0 echo -n "{}:")
         callback = function()
           local current_file = vim.api.nvim_buf_get_name(0)
           local project_root = require('lspconfig.util').root_pattern('MODULE.bazel', 'WORKSPACE', '.git')(current_file)
