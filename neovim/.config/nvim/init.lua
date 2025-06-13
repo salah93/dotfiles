@@ -26,6 +26,7 @@ vim.g.ale_fixers = {
   ['*'] = {'trim_whitespace', 'remove_trailing_lines'},
 }
 vim.g.ale_linters = {
+  java = {},
   python = {'flake8'},
   bash = {'shellcheck'},
   go = {'golint', 'errcheck', 'deadcode', 'go vet'},
