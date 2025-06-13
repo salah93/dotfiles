@@ -64,6 +64,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    -- Disable coc completely
+    vim.b.coc_enabled = 0
+  end,
+})
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   command = "setlocal spell complete+=kspell"
 })

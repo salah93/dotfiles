@@ -20,11 +20,12 @@ return {
             require("nvim-treesitter.configs").setup{
                 ensure_installed = {
                     "markdown",
+                    "java",
                     "markdown_inline",
                     "python",
                     "vim",
                     "lua",
-                    "vimdoc",
+                    "vim",
                     "query"
                 },
                 sync_install = false,

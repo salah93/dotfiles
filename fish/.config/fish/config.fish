@@ -61,6 +61,7 @@ bind -k up history-search-backward
 # pyenv
 set -x PYENV_ROOT "$HOME/.pyenv"
 fish_add_path $PYENV_ROOT/bin
+fish_add_path $HOME/.local/share/jdtls/bin
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
