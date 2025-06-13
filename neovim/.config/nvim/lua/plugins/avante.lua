@@ -49,7 +49,6 @@ return {
         end
     },
     --- The below dependencies are optional,
-    "ibhagwan/fzf-lua", -- for file_selector provider fzf
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
   },
 }

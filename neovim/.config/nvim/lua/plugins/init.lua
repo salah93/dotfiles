@@ -8,8 +8,12 @@ return {
     "valloric/MatchTagAlways",
     "dag/vim-fish",
     "simnalamburt/vim-mundo",
-    "junegunn/fzf.vim",
-    "junegunn/fzf",
+    {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {}
+    },
     "bling/vim-airline",
     "fatih/vim-go",
     "tmhedberg/SimpylFold",
