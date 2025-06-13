@@ -2,25 +2,17 @@
 -- Replace your existing java-bazel.lua with this version
 
 return {
-  -- LSP Configuration - bypassing problematic lspconfig jdtls setup
+  -- LSP Configuration - using nvim-jdtls instead of manual setup
   {
-    'neovim/nvim-lspconfig',
+    'mfussenegger/nvim-jdtls',
+    ft = 'java',
     config = function()
-      -- Don't use require('lspconfig').jdtls.setup - this is causing the error
-      -- Instead, set up jdtls manually using vim.lsp.start
-
-      -- Only set up jdtls for Java files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
-        -- # install jdts
-        --      cd ~/.local/share
-        --      wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
-        --      tar -xzf jdt-language-server-latest.tar.gz --directory=jdtls
-        --      rm jdt-language*tar.gz
-        --      export PATH=$PATH:$HOME/.local/share/jdtls/bin
         callback = function()
+          local jdtls = require('jdtls')
           local current_file = vim.api.nvim_buf_get_name(0)
-          local project_root = require('lspconfig.util').root_pattern('MODULE.bazel', 'WORKSPACE', '.git')(current_file)
+          local project_root = require('jdtls.setup').find_root({'MODULE.bazel', 'WORKSPACE', '.git'})
 
           if not project_root then
             print("❌ No project root found for Java file")
@@ -29,10 +21,12 @@ return {
 
           print("🚀 Starting jdtls manually for: " .. project_root)
 
-          -- Start jdtls client manually
-          vim.lsp.start({
-            name = 'jdtls',
-            cmd = { 'jdtls' },
+          -- Create workspace-specific data directory
+          local workspace_name = vim.fn.fnamemodify(project_root, ':t')
+          local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. workspace_name
+
+          local config = {
+            cmd = { 'jdtls', '-data', workspace_dir },
             root_dir = project_root,
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
             settings = {
@@ -41,7 +35,13 @@ return {
                   downloadSources = true,
                 },
                 configuration = {
-                  updateBuildConfiguration = "interactive",
+                  updateBuildConfiguration = "disabled",  -- Changed from "interactive"
+                  detectProjects = false,                 -- Added to disable auto-detection
+                },
+                -- Added import settings to disable Gradle/Maven
+                import = {
+                  gradle = { enabled = false },
+                  maven = { enabled = false },
                 },
                 maven = {
                   downloadSources = true,
@@ -51,6 +51,9 @@ return {
                     "src/main/java",
                     "src/test/java",
                   },
+                  referencedLibraries = {              -- Added back the JAR references
+                    "bazel-*/**/*.jar",
+                  }
                 },
                 completion = {
                   importOrder = {
@@ -62,7 +65,7 @@ return {
                 }
               }
             },
-            on_attach = function(_, buffer)
+            on_attach = function(client, buffer)
               print("✅ JDTLS attached manually")
 
               -- Standard key mappings
@@ -81,7 +84,10 @@ return {
               vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
               vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
             end,
-          })
+          }
+
+          -- Start JDTLS with nvim-jdtls
+          jdtls.start_or_attach(config)
         end,
       })
     end
