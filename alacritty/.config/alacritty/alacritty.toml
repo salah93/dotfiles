@@ -190,10 +190,12 @@ mods = "Control"
 #bright_foreground = "#5e5c64"
 #foreground = "#171421"
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/usr/local/bin/fish"
 
 [window.dimensions]
 columns = 180
 lines = 40
+
+[terminal]
