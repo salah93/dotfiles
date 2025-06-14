@@ -150,22 +150,6 @@ try {{
                 i(5, "// code"),
             })),
 
-            -- Constructor
-            s("ctor", fmt([[
-{} {}({}) {{
-    {}
-}}
-            ]], {
-                c(1, {
-                    t("public"),
-                    t("private"),
-                    t("protected"),
-                }),
-                i(2, "ClassName"),
-                i(3, ""),
-                i(4, "// code"),
-            })),
-
             -- JUnit test method
             s("test", fmt([[
 @Test
