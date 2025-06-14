@@ -34,8 +34,48 @@ local config = {
             "javax",
             "com",
             "org"
+            },
+            favoriteStaticMembers = {
+                "org.junit.Assert.*",
+                "org.junit.Assume.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "org.junit.jupiter.api.Assumptions.*",
+                "org.junit.jupiter.api.DynamicContainer.*",
+                "org.junit.jupiter.api.DynamicTest.*",
+                "org.mockito.Mockito.*",
+                "org.mockito.ArgumentMatchers.*",
+                "org.mockito.Answers.*"
             }
-        }
+        },
+        -- Enable code generation features
+        codeGeneration = {
+            toString = {
+                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+            },
+            hashCodeEquals = {
+                useJava7Objects = true
+            },
+            useBlocks = true,
+            generateComments = true
+        },
+        -- Templates for generating code
+        templates = {
+            fileHeader = [=[
+/**
+ * ${type_name}
+ *
+ * @author ${user}
+ * @since ${date}
+ */]=],
+            typeComment = [=[
+/**
+ * ${type_name}
+ *
+ * @author ${user}
+ */]=]
+        },
+        -- Configure sources for content assist proposals
+        contentProvider = { preferred = "fernflower" },
         }
     },
     on_attach = function(client, buffer)
@@ -56,6 +96,18 @@ local config = {
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+
+        -- Generate boilerplate code using LSP code actions
+        vim.keymap.set('n', '<leader>jg', function()
+            -- Use the built-in code actions functionality
+            -- This will show all available code actions at the current position
+            -- including generate toString(), equals/hashCode, constructors, etc.
+            vim.lsp.buf.code_action({
+                context = {
+                    only = { "source.generate" } -- Filter to only show generate actions
+                }
+            })
+        end, opts)
     end,
 
 }

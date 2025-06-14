@@ -31,7 +31,20 @@ return {
         -- Scroll through documentation
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-
+	['<A-n>'] = cmp.mapping(function(fallback)
+	   if luasnip.choice_active() then
+	      luasnip.change_choice(1)
+	   else
+	      fallback()
+	   end
+	end),
+	['<A-p>'] = cmp.mapping(function(fallback)
+	   if luasnip.choice_active() then
+	      luasnip.change_choice(-1)
+	   else
+	      fallback()
+	   end
+	end),
         -- Manual completion trigger
         ['<C-Space>'] = cmp.mapping.complete(),
 
