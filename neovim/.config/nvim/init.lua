@@ -66,4 +66,12 @@ vim.g.tagbar_type_go = {
 
 -- Disable tmux navigator when zooming the Vim pane
 vim.g.tmux_navigator_disable_when_zoomed = 1
-require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets/"})
+require("luasnip.loaders.from_lua").load()
+require("luasnip").config.set_config({ -- Setting LuaSnip config
+
+  -- Enable autotriggered snippets
+  enable_autosnippets = true,
+
+  -- Use Tab (or some other key if you prefer) to trigger visual selection
+  store_selection_keys = "<Tab>",
+})
