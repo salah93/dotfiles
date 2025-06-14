@@ -58,22 +58,6 @@ local config = {
             useBlocks = true,
             generateComments = true
         },
-        -- Templates for generating code
-        templates = {
-            fileHeader = [=[
-/**
- * ${type_name}
- *
- * @author ${user}
- * @since ${date}
- */]=],
-            typeComment = [=[
-/**
- * ${type_name}
- *
- * @author ${user}
- */]=]
-        },
         -- Configure sources for content assist proposals
         contentProvider = { preferred = "fernflower" },
         }
