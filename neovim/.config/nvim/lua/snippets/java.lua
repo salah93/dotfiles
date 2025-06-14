@@ -6,13 +6,7 @@ local c = ls.choice_node
 local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
--- Create directory if it doesn't exist
-local snippet_group = vim.api.nvim_create_augroup("JavaSnippets", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "java",
-    callback = function()
-        -- Class template
-        ls.add_snippets("java", {
+return {
             s("class", fmt([[
 public class {} {{
     {}
@@ -277,7 +271,4 @@ LOGGER.severe({});
             ]], {
                 i(1, "\"Error message\""),
             })),
-        })
-    end,
-    group = snippet_group,
-})
+        }
