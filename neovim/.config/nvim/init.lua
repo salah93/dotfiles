@@ -25,6 +25,7 @@ vim.g.ale_fixers = {
   ['*'] = {'trim_whitespace', 'remove_trailing_lines'},
 }
 vim.g.ale_linters = {
+  -- use jdtls lsp for java
   java = {},
   python = {'flake8'},
   bash = {'shellcheck'},
@@ -63,14 +64,9 @@ vim.g.tagbar_type_go = {
   ctagsargs = '-sort -silent'
 }
 
--- Disable tmux navigator when zooming the Vim pane
 vim.g.tmux_navigator_disable_when_zoomed = 1
 require("luasnip.loaders.from_lua").load()
-require("luasnip").config.set_config({ -- Setting LuaSnip config
-
-  -- Enable autotriggered snippets
+require("luasnip").config.set_config({
   enable_autosnippets = true,
-
-  -- Use Tab (or some other key if you prefer) to trigger visual selection
   store_selection_keys = "<Tab>",
 })
