@@ -1,5 +1,22 @@
+local os_name
+local sysname = vim.uv.os_uname().sysname
+
+if sysname == "Darwin" then
+    os_name = "mac"
+elseif sysname == "Linux" then
+    os_name = "linux"
+else
+    print("Unsupported OS: " .. sysname)
+    return
+end
+
+local jdtls_home = vim.env.HOME .. "/.local/share/jdtls"
 local config = {
-    cmd = { vim.env.HOME .. "/.local/share/jdtls/bin/jdtls"},
+    cmd = {
+        jdtls_home .. "/bin/jdtls",
+        "-data", vim.env.HOME .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t'),
+        "-configuration", jdtls_home .. "/config_" .. os_name
+    },
     root_dir = vim.fs.dirname(vim.fs.find({'MODULE.bazel', '.git', 'mvnw'}, { upward = true })[1]),
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
     settings = {
@@ -21,11 +38,11 @@ local config = {
         --},
         project = {
             sourcePaths = {
-            "src/main/java",
-            "src/test/java",
+                "src/main/java",
+                "src/test/java",
             },
-            referencedLibraries = {              -- Added back the JAR references
-            "bazel-*/**/*.jar",
+            referencedLibraries = {
+                "bazel-*/**/*.jar",
             }
         },
         completion = {
