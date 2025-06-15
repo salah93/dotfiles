@@ -14,6 +14,7 @@ local jdtls_home = vim.env.HOME .. "/.local/share/jdtls"
 local config = {
     cmd = {
         jdtls_home .. "/bin/jdtls",
+        "-data", vim.env.HOME .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t'),
         "-configuration", jdtls_home .. "/config_" .. os_name
     },
     root_dir = vim.fs.dirname(vim.fs.find({'MODULE.bazel', '.git', 'mvnw'}, { upward = true })[1]),
