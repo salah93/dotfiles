@@ -95,4 +95,12 @@ local config = {
     end,
 
 }
-require('jdtls').start_or_attach(config)
+vim.defer_fn(function()
+    -- Check if jdtls is already running
+    if vim.lsp.get_clients({ name = "jdtls" })[1] then
+        print("JDTLS is already running, skipping start.")
+    else
+        -- Start or attach to the JDTLS server
+        require('jdtls').start_or_attach(config)
+    end
+end, 1000)
