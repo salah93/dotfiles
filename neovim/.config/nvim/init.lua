@@ -12,6 +12,7 @@ vim.g.vim_markdown_folding_disabled = 1
 vim.g.ctrlp_custom_ignore = {
   dir = [[\v[\/](node_modules|\.git|__pycache__|env|.*\.egg-info)$]],
 }
+vim.g.ctrlp_max_files = 0
 
 -- ale
 vim.g.ale_lint_on_text_changed = 0
