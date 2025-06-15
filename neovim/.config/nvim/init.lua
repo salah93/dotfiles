@@ -4,7 +4,6 @@ vim.g.python3_host_prog = '~/.virtualenvs/env/bin/python3'
 -- Load lazy.nvim configuration
 require("config.lazy")
 require("options")
-require("keymaps")
 
 -- Plugin configurations
 -- vim_markdown
@@ -33,7 +32,7 @@ vim.g.ale_linters = {
 }
 
 -- ansible options
-vim.g.ansible_options = {documentation_mapping = '<C-K>'}
+vim.g.ansible_options = {documentation_mapping = '<C-X>'}
 
 -- tagbar for go
 vim.g.tagbar_type_go = {

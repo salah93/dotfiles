@@ -3,12 +3,6 @@
 -- Disable highlight when <leader><cr> is pressed
 vim.keymap.set("n", "<leader>c", ":noh<cr>", { silent = true })
 
--- Window movement keys
-vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
-vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
-vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
-vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
-
 -- Tab movement keys
 vim.keymap.set("", "<leader>[", "<esc>:tabprevious<CR>")
 vim.keymap.set("", "<leader>]", "<esc>:tabnext<CR>")
