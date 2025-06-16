@@ -54,16 +54,6 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4"
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
-  callback = function()
-    local colorcolumn = {"90"}
-    for i = 400, 999 do
-      table.insert(colorcolumn, tostring(i))
-    end
-    vim.opt_local.colorcolumn = table.concat(colorcolumn, ",")
-  end
-})
-vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   command = "setlocal spell complete+=kspell"
 })
