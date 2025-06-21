@@ -104,3 +104,5 @@ vim.cmd([[
   highlight QuickFixLine ctermfg=blue guifg=blue
   highlight MatchParen ctermbg=blue ctermfg=white guibg=blue guifg=white
 ]])
+
+vim.opt.fileignorecase = true
