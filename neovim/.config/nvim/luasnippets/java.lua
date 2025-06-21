@@ -5,23 +5,6 @@ local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-    s("interface", fmt([[
-public interface {} {{
-{}
-}}
-    ]], {
-        i(1, "InterfaceName"),
-        i(2, "// methods"),
-    })),
-
-    s("class", fmt([[
-public class {} {{
-{}
-}}
-    ]], {
-        i(1, "ClassName"),
-        i(2, "// code"),
-    })),
 
     s("test", fmt([[
 @Test

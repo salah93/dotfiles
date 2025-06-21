@@ -112,5 +112,8 @@ return {
   {
     'bazelbuild/vim-bazel',
     ft = { 'bzl', 'bazel', 'BUILD' },
+    dependencies = {
+      'google/vim-maktaba',
+    },
   },
 }
