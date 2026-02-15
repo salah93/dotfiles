@@ -47,5 +47,24 @@ return {
         'neoclide/coc.nvim',
         branch = 'release'
     },
-    "w0rp/ale"
+    "w0rp/ale",
+    {
+        "vimwiki/vimwiki",
+        event = "BufEnter *.md",
+        keys = {
+            { "<leader>ww", desc = "Open wiki index" },
+            { "<leader>wi", desc = "Open diary index" },
+        },
+        init = function()
+            vim.g.vimwiki_list = {
+                {
+                    syntax= 'markdown',
+                    ext= 'md',
+                    path= '~/Dropbox/journal' ,
+                }
+            }
+            vim.g.vimwiki_global_ext = 0
+        end
+
+    }
 }
