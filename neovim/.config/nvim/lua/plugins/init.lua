@@ -50,10 +50,17 @@ return {
     "w0rp/ale",
     {
         "vimwiki/vimwiki",
+        dependencies = {"ibhagwan/fzf-lua",},
         event = "BufEnter *.md",
         keys = {
             { "<leader>ww", desc = "Open wiki index" },
             { "<leader>wi", desc = "Open diary index" },
+            { "<leader>jf", function()
+    require("fzf-lua").live_grep({ cwd = vim.fn.expand("~/Dropbox/journal") })
+  end, desc = "Search journal" },
+            { "<leader>jn", function()
+    require("fzf-lua").files({ cwd = vim.fn.expand("~/Dropbox/journal") })
+  end, desc = "Find journal file" },
         },
         init = function()
             vim.g.vimwiki_list = {
