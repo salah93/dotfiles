@@ -1,5 +1,5 @@
 # environment
-set -x VISUAL vim
+set -x VISUAL nvim
 set -x EDITOR $VISUAL
 set -x GPG_TTY (tty)
 ## ls colors
